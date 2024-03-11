@@ -2,8 +2,8 @@
 :root{
    --bg:white;
    --bgSoft:#b7bac1;
-   --text:#151c2c;
-   --textSoft:#182237;
+   --text:#000000;
+   --textSoft:#4d4e4f;
 }
 *{
   margin: 0;
