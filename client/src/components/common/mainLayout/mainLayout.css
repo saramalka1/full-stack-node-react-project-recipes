@@ -1,0 +1,16 @@
+.main-layout-container{
+    display: flex;
+    flex-direction: column;
+}
+.head{
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    color: white;
+    gap: 10vw;
+    height: 10vh;
+    width: 100%;
+    border-bottom: solid rgb(171, 170, 170) 0.7vh;
+    align-items: center;
+    justify-content: center;
+}

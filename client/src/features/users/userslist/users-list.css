@@ -1,0 +1,133 @@
+/* .users-list{
+    background-color: var(--bgSoft);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .users-list-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .users-list-add-button{
+    padding: 10px;
+    background-color:var(--purpil);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .users-list-table{
+    width: 100%;
+  }
+  
+  .users-list-table td{
+    padding: 10px;
+  }
+  
+  .users-list-user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .users-list-user-image{
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .users-list-buttons{
+    display: flex;
+    gap: 10px;
+  }
+  
+  .users-list-button{
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--text);
+    border: none;
+    cursor: pointer;
+  }
+  
+  .users-list-view{
+    background-color: teal;
+  }
+  
+  .users-list-delete{
+    background-color: crimson;
+  } */
+.users-list {
+  min-width: 80vw;
+  padding-top: 6vh;
+  padding-right: 10vw;
+}
+
+.users-list-top {
+  display: flex;
+  align-items: center;
+  gap: 61vw;
+}
+
+.users-list-buttons{
+  display: flex;
+  gap: 10px;
+}
+
+.users-list-add-button{
+  padding: 10px;
+  background-color:var(--purpil);
+  color: white;
+  border: solid var(--purpil) 5px 5px 5px 5px;
+  border-width: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.users-list-table{
+  text-align: center;
+  min-width: 95%;
+  min-height: 50vh;
+  margin-top: 5vh;
+  background-color: var(--softgreen); 
+  border-radius: 10px; 
+}
+
+.users-list-table td{
+  padding: 10px;
+}
+
+.users-list-user{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.users-list-button{
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--text);
+  border: none;
+  cursor: pointer;
+}
+
+.users-list-view{
+  background-color:rgba(172, 172, 172, 0.076);
+}
+
+.users-list-delete{
+  color: black;
+  background-color:rgba(172, 172, 172, 0.076);
+}
+
+.users-list thead {
+ 
+  color: var(--green);
+  font-size: 120%;
+}
+.users-list-delete{
+  width: 30%;
+}
+
+

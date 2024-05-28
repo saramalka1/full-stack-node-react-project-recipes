@@ -1,0 +1,49 @@
+
+  .add-user-container{
+    min-height: 90vh;
+    margin-top: 7vh;
+    margin-right: 30vw;
+   }
+   /* זה הפורם   */
+   .add-user-form{
+    display: flex;
+    gap: 4vh;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+   }
+   .add-user-form label{
+    color: var(--purpil);
+   }
+   .add-user-form  input,button,select{
+    width: 30vw;
+    height: 3rem;
+    font-size: 1.1rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    /* border-bottom:solid var(--purpil) 5px ; */
+   }
+   .add-user-form input:hover,select:hover{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom:solid var(--purpil) 3px ;
+   }
+   .add-user-form button{
+    border-bottom: none;
+    background-color: var(--softpurpil);
+  
+   }
+   .add-user-form button:hover{
+    background-color: var(--purpil);
+  color: white;
+   }
+   .add-user-container input,select{
+    border: none; 
+      border-bottom: 1px solid #ccc; 
+      outline: none; 
+   }
+   .add-user-container .err{
+    color: rgb(22, 22, 22);
+   }

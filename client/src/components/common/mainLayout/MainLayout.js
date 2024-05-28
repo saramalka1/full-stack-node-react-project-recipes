@@ -1,14 +1,14 @@
 import { Outlet } from "react-router-dom"
-import Navigation from "./Navigation"
-import "./layout.css"
+import Navigation from "../navigation/Navigation"
+import './mainLayout.css'
 const MainLayout = () => {
   return (
     <div className="main-layout-container">
-      <div >
-        <div>
+      <div className="head">
+        <div className="logo">
           logo
         </div>
-        <div>
+        <div className="navigation">
           <Navigation />
         </div>
       </div>

@@ -6,6 +6,12 @@ const recipeSchema=new mongoose.Schema(
             type:String,
             required:true
         },
+        description:{
+            type:String
+        },
+        amount:{
+            type:Number
+        },
         imgurl:{
             type:String,
             required:true
@@ -26,9 +32,9 @@ const recipeSchema=new mongoose.Schema(
             required:true
         },
         category:{
-            type:mongoose.Schema.Types.ObjectId,
-            required:true,
-            ref:'Category'
+            type:[{type:mongoose.Schema.Types.ObjectId,ref:'Category'}],
+            required:true
+           
         },
         type:{
             type:String,

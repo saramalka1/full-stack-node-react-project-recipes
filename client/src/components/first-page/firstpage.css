@@ -1,0 +1,20 @@
+.first-page-container{
+    min-width: 100%;
+    min-height: 100%;
+}
+.categories-container{
+    margin-top: 5vh;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2vw;
+}
+.single-category{
+    
+    height: 25vh;
+    width: 25vw;
+    background-image:url('./1.jpg') ;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    
+}

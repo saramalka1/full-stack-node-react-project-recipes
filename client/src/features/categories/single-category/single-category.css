@@ -1,0 +1,100 @@
+.single-category-container{
+    display: flex;
+    flex-direction: column;
+}
+.category-properties{
+    display: flex;
+flex-direction: column;
+gap: 5vh;
+}
+.category-title{
+    margin-top: 0;
+    height: 15vh;
+    padding: 5vh;
+    font-size: 1.5rem;
+    background-color: var(--softgreen);
+    color: var(--green);
+    text-align: center;
+}
+.form-category-properties{
+    display: flex;
+    flex-direction: column;
+    min-height: 30vh;
+    padding-top: 3vh;
+    padding-right: 33vw;
+    background-color: var(--softpurpil);
+    gap: 2vh;
+}
+.form-category-properties input{
+    width: 30vw;
+    height: 4vh;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+}
+.form-category-properties button{
+    background-color: var(--softpurpil);
+    border-bottom: none;
+}
+.form-category-properties button:hover{
+    background-color: var(--purpil);
+    color: white;
+}
+
+
+/*tavla*/
+.title-table-recipe{
+text-align: center;    
+color: var(--green);
+padding-top: 4vh;
+}
+  .recipes-table{
+    text-align: center;
+    min-width: 100%;
+    /* min-height: 50vh; */
+    margin-top: 5vh;
+    background-color: var(--softgreen); 
+    border-radius: 10px; 
+    padding-right: 10vw;
+  }
+  .recipes-table thead{
+    color: var(--green);
+  }
+  .recipes-table tr{
+    padding: 10vw;
+  }
+  .recipes-table td{
+    padding: 20px;
+  }
+  .recipes-list-recipe{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .recipe-name-image{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .recipes-table .recipe-img{
+    border-radius: 50%;
+  }
+  .recipes-table .show-td{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding-right: 15vw;
+  }
+  .change-show{
+    width: 5vw;
+    height: 5vh;
+    border: none;
+    padding: 7px;
+  }
+
+
+
+  
+  
+

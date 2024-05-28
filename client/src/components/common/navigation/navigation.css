@@ -1,0 +1,64 @@
+.navigation-main-container{
+    display: flex;
+    flex-direction: row;
+    gap: 10vw;
+}
+.navigation-main-container .active {
+  color:var(--purpil);
+
+}
+.navigation-recipes-container{
+   position: relative;
+}
+.navigation-adminActions-container{
+    position: relative;
+}
+.navigation-recipes{
+    display: none;
+}
+.navigation-adminActions{
+    display: none;
+}
+.navigation-recipes-container:hover .navigation-recipes{
+    display: flex;
+    gap: 1.5vh;
+    flex-direction: column;
+    position: absolute;
+    padding-top: 6vh;
+    min-height: 15vh;
+    background-color: black;
+    padding-bottom: 2vh;    
+    color: white;
+    min-width: 7vw;
+   justify-items: center;
+   align-items: center;
+   border-bottom-left-radius: 10%;
+   border-bottom-right-radius: 10%;
+}
+.navigation-adminActions-container:hover .navigation-adminActions{
+    display: flex;
+    gap: 1.5vh;
+    flex-direction: column;
+    position: absolute;
+    padding-top: 6vh;
+    height: 15vh;
+    background-color: black;
+    color: white;
+    width:7vw;
+   justify-items: center;
+   align-items: center;
+   border-bottom-left-radius: 10%;
+   border-bottom-right-radius: 10%;
+
+}
+.login{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5vw;
+}
+.login-icon{
+    color: rgb(173, 174, 175);
+}
+
+
+

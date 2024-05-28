@@ -1,10 +1,15 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom"
-import MainLayout from './components/common/MainLayout';
+import MainLayout from './components/common/mainLayout/MainLayout';
 import FirstPage from './components/first-page/FirstPage';
-import UserList from './features/users/UserList';
-import UserLayout from './features/users/UserLayout';
+import UserList from './features/users/userslist/UserList';
+import SingleUser from './features/users/userview/SingleUser';
+import AddUser from './features/users/addUser/AddUser';
+import CategoriesList from './features/categories/list/CategoriesList';
 
+import { AiOutlineHeart } from 'react-icons/ai';
+import AddCategory from './features/categories/addCategory/AddCategory';
+import SingleCategory from './features/categories/single-category/SingleCategory';
 
 
 function App() {
@@ -34,14 +39,17 @@ function App() {
             </Route>
 
             {/* //users-for admin */}
-            <Route path='/users' element={<UserLayout/>}>
+            <Route path='users' element={<Outlet/>}>
               <Route index element={<UserList/>}/>
-              <Route path='add' element={<h1>add user</h1>}/>
-              <Route path=':userid' element={<h1>single user</h1>}/>
+              <Route path='add' element={<AddUser/>}/>
+              <Route path=':userid' element={<SingleUser/>}/>
             </Route>
-
-            <Route path='/recipeactions' element={<Outlet/>}>
-              <Route index element={<h1>list of links to recipes of categories</h1>}/>
+{/* //categories and recipes-for admin */}
+            <Route path='categories' element={<Outlet/>}>
+              <Route index element={<CategoriesList/>}/>
+              <Route path='add' element={<AddCategory/>}/>
+              <Route path=':categoryid' element={<SingleCategory/>}/>
+              {/* <Route path=':categoryid/recipes' element={<h1>dfgh!!!</h1>}/> */}
             </Route>
 
           </Route>

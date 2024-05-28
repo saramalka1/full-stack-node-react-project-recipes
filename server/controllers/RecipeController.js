@@ -2,7 +2,7 @@ const Recipe = require('../models/Recipe')
 
 //admin
 const getAllRecipes = async (req, res) => {
-    const recipes = await Recipe.find({ deleted: false }).populate('category').populate('user', { password: 0 }).lean()
+    const recipes = await Recipe.find({ deleted: false }).lean()
     if (!recipes) {
         return res.status(404).json({ message: "failed to find recipes." })
     }
@@ -47,7 +47,7 @@ const getRecipeById=async(req,res)=>{
 const createNewRecipe = async (req, res) => {
     const { name, imgurl, ingredients, instructions,
         category, type, level
-        , preparationtime } = req.body
+        , preparationtime ,description,amount} = req.body
 
     if (!name || !imgurl || !ingredients || !instructions || !category) {
         return res.status(400).json({
@@ -66,7 +66,7 @@ const createNewRecipe = async (req, res) => {
     const recipe = await Recipe.create({
         name, imgurl, ingredients, instructions,
         writeruser: req.user, category, type, level
-        , preparationtime
+        , preparationtime,description,amount
     })
     if (!recipe) {
         return res.status(404).json({
@@ -116,7 +116,7 @@ const updateRecipeByAdmin = async (req, res) => {
 const updateRecipeByUser = async (req, res) => {
     const { id, name, imgurl, ingredients, instructions,
         category, type, level
-        , preparationtime } = req.body
+        , preparationtime,description,amount } = req.body
     if (!id) {
         return res.status(400).json({
             error: true,
@@ -157,7 +157,8 @@ const updateRecipeByUser = async (req, res) => {
     recipe.type = type
     recipe.level = level
     recipe.preparationtime = preparationtime
-
+    recipe.description = description
+    recipe.amount = amount
     const updated = await recipe.save()
     if (!updated) {
         return res.status(404).json({

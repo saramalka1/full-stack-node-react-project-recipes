@@ -81,6 +81,13 @@ const createNewUser = async (req, res) => {
 //admin
 const updateUser = async (req, res) => {
     const { id, name, email, phone, roles, active, getmailoninsert } = req.body
+    if(!id){
+        return res.status(400).json({
+            error: true,
+            message: "id is required",
+            data: null
+        })
+    }
     const user = await User.findById(id, { password: 0 }).exec()
     if (!user)
         return res.status(404).json({

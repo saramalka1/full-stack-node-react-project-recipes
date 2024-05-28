@@ -1,0 +1,69 @@
+.categories-list{
+    padding: 5vh;
+    display: flex;
+    flex-direction: column;
+}
+.categories-list-top{
+    display: flex;
+    flex-direction: row;
+    gap: 70vw;
+}
+.categories-list-add-button{
+    padding: 10px;
+    background-color:var(--purpil);
+    color: white;
+    border: solid var(--purpil) 5px 5px 5px 5px;
+    border-width: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+.categories-list-table{
+    text-align: center;
+    min-width: 95%;
+    min-height: 50vh;
+    margin-top: 5vh;
+    background-color: var(--softgreen); 
+    border-radius: 10px; 
+    
+}
+.categories-list-table thead .description{
+    width: 50%;
+}
+.categories-list-table td{
+    padding: 10px;
+}
+.categories-list-category{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.categories-list-company-image{
+    border-radius: 50%;
+}
+.categories-list-buttons{
+    margin-right:9vw ;
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    /* padding: 5px 10px; */
+    border-radius: 5px;
+    border: none;
+}
+.categories-list-delete{
+    width: 20%;
+    height: 5vh;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(183, 182, 182, 0.068);
+}
+
+.categories-list-view{
+    width: 30%;
+    cursor: pointer;
+    background-color: rgba(183, 182, 182, 0.068);
+    height: 5vh;
+    padding: 5px;
+}
+

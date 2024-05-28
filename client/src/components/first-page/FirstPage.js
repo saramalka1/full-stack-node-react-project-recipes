@@ -1,21 +1,23 @@
 import { NavLink } from "react-router-dom"
-import { useGetAllCategoriesQuery } from "../../features/categorys/categoryApiSlice"
-
+import { useGetAllCategoriesQuery } from "../../features/categories/categoryApiSlice"
+import './firstpage.css'
 function FirstPage() {
     const {data:categories,isError,isLoading,isSuccess,error}=useGetAllCategoriesQuery()
     if(isLoading)return
     if(isError)return error
 
   return (
-    <div>FirstPage
+    <div className="first-page-container">
       {/* זה דיו לכל הקטגוריות */}
-      <div>
+      <div className="categories-container">
         {
             categories.data?.map(cat=>{
-                return <NavLink to={`/recipes/${cat._id}`}><h1>{cat.name}</h1>
-                //כאן אמורים לראות את התמונה
-                <img src={cat?.img||""}/>
-                  </NavLink>  
+              
+                return <div className="single-category" >
+                <NavLink to={`/recipes/${cat._id}`} ><h1>{cat.name}</h1>
+                  </NavLink> 
+                 
+                  </div> 
             })
         }
         </div>

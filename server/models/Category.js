@@ -10,6 +10,9 @@ const categorySchema = new mongoose.Schema(
             type:String,
             required: true
         },
+        description:{
+            type:String,
+        },
         deleted: {
             type: Boolean,
             default: false,
