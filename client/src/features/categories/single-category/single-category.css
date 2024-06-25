@@ -1,100 +1,152 @@
-.single-category-container{
-    display: flex;
-    flex-direction: column;
+.single-category-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--softpurpil);
+  /* min-height: 200vh; */
 }
-.category-properties{
-    display: flex;
-flex-direction: column;
-gap: 5vh;
+
+
+.single-category-properties{
+  
+  padding: 20vh;
+  display: flex;
+  gap: 5vw;
+  max-width:  100vw;
+  max-height: 20vh;
+  align-items: center;
+  align-content: center;
 }
-.category-title{
-    margin-top: 0;
-    height: 15vh;
-    padding: 5vh;
-    font-size: 1.5rem;
-    background-color: var(--softgreen);
-    color: var(--green);
-    text-align: center;
+.single-category-info{
+  display: flex;
+  flex-direction: column;
+  max-width: 25vw;
+  max-height: 25vw;
+  background-color: var(--purpil);
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
 }
-.form-category-properties{
-    display: flex;
-    flex-direction: column;
-    min-height: 30vh;
-    padding-top: 3vh;
-    padding-right: 33vw;
-    background-color: var(--softpurpil);
-    gap: 2vh;
+.single-category-img-container{
+  width: 100%;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  /* height: 50%; */
 }
-.form-category-properties input{
-    width: 30vw;
-    height: 4vh;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    outline: none;
+.single-category-img-container img{
+  object-fit: contain;
+  width: 100% !important;
+ }
+
+.form-category-properties {
+  display: flex;
+  flex-direction: column;
+  min-height: 35vh;
+  padding-top: 3vh;
+  padding-right: 28vw;
+  padding-left: 3vw;
+  background-color: white;
+  border-radius: 10px;
+  gap: 3vh;
+  
 }
-.form-category-properties button{
-    background-color: var(--softpurpil);
-    border-bottom: none;
+
+.form-category-properties input {
+  width: 30vw;
+  height: 4vh;
+  /* border: none; */
 }
-.form-category-properties button:hover{
-    background-color: var(--purpil);
+
+.form-category-properties button {
+  background-color: var(--softpurpil);
+  border-bottom: none;
+  border-radius: 10px;
+}
+
+.form-category-properties button:hover {
+  background-color: var(--purpil);
+  color: white;
+}
+/* befor tavla */
+.title-and-add-button-container{
+display: flex;
+align-items: center;
+align-content: center; 
+gap: 58vw;
+ justify-content: center;
+justify-items: center;
+}
+
+.title-table-recipe {
+  text-align: center;
+  padding-top: 4vh;
+  font-size: 160%;
+}
+
+.add-recipe-button{
+  
+    padding: 10px;
+    background-color:var(--purpil);
     color: white;
+   height: fit-content;
+    border-radius: 5px;
+    cursor: pointer;
+  
 }
-
-
 /*tavla*/
-.title-table-recipe{
-text-align: center;    
-color: var(--green);
-padding-top: 4vh;
+.recipes-table {
+  margin: 2vh;
+  margin-right: 9vw;
+  text-align: center;
+  min-width: 82%;
+  /* min-height: 50vh; */
+  margin-top: 5vh;
+  background-color: white;
+  border-radius: 10px;
+  padding-right: 10vw;
 }
-  .recipes-table{
-    text-align: center;
-    min-width: 100%;
-    /* min-height: 50vh; */
-    margin-top: 5vh;
-    background-color: var(--softgreen); 
-    border-radius: 10px; 
-    padding-right: 10vw;
-  }
-  .recipes-table thead{
-    color: var(--green);
-  }
-  .recipes-table tr{
-    padding: 10vw;
-  }
-  .recipes-table td{
-    padding: 20px;
-  }
-  .recipes-list-recipe{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .recipe-name-image{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .recipes-table .recipe-img{
-    border-radius: 50%;
-  }
-  .recipes-table .show-td{
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    padding-right: 15vw;
-  }
-  .change-show{
-    width: 5vw;
-    height: 5vh;
-    border: none;
-    padding: 7px;
-  }
 
+/* .recipes-table thead {
+  text-decoration: underline;
+  color: var(--green);
+} */
 
+.recipes-table tr {
+  padding: 10vw;
+}
 
-  
-  
+.recipes-table td {
+  padding: 20px;
+}
 
+.recipes-list-recipe {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.recipe-name-image {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.recipes-table .recipe-img {
+  border-radius: 50%;
+}
+
+.recipes-table .show-td {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding-right: 15vw;
+}
+
+.change-show {
+  width: 5vw;
+  height: 5vh;
+  border: none;
+  padding: 7px;
+}

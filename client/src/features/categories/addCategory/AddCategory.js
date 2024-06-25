@@ -15,8 +15,8 @@ function AddCategory() {
     const submitForm=(e)=>{
         e.preventDefault()
         const data=new FormData(e.target)
-        const categoryObj=Object.fromEntries(data.entries())
-        addCategory(categoryObj)
+        //const categoryObj=Object.fromEntries(data.entries())
+        addCategory(data)
         
         
     }

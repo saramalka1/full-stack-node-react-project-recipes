@@ -1,25 +1,34 @@
-.navigation-main-container{
+.navigation-main-container {
     display: flex;
     flex-direction: row;
-    gap: 10vw;
+    gap: 9vw;
+    justify-content: center;
+    justify-items: center;
+    height: 4vh;
 }
+
 .navigation-main-container .active {
-  color:var(--purpil);
+    color: var(--purpil);
 
 }
-.navigation-recipes-container{
-   position: relative;
-}
-.navigation-adminActions-container{
+
+.navigation-recipes-container {
     position: relative;
 }
-.navigation-recipes{
+
+.navigation-adminActions-container {
+    position: relative;
+}
+
+.navigation-recipes {
     display: none;
 }
-.navigation-adminActions{
+
+.navigation-adminActions {
     display: none;
 }
-.navigation-recipes-container:hover .navigation-recipes{
+
+.navigation-recipes-container:hover .navigation-recipes {
     display: flex;
     gap: 1.5vh;
     flex-direction: column;
@@ -27,15 +36,16 @@
     padding-top: 6vh;
     min-height: 15vh;
     background-color: black;
-    padding-bottom: 2vh;    
+    padding-bottom: 2vh;
     color: white;
     min-width: 7vw;
-   justify-items: center;
-   align-items: center;
-   border-bottom-left-radius: 10%;
-   border-bottom-right-radius: 10%;
+    justify-items: center;
+    align-items: center;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
 }
-.navigation-adminActions-container:hover .navigation-adminActions{
+
+.navigation-adminActions-container:hover .navigation-adminActions {
     display: flex;
     gap: 1.5vh;
     flex-direction: column;
@@ -44,21 +54,50 @@
     height: 15vh;
     background-color: black;
     color: white;
-    width:7vw;
-   justify-items: center;
-   align-items: center;
-   border-bottom-left-radius: 10%;
-   border-bottom-right-radius: 10%;
+    width: 7vw;
+    justify-items: center;
+    align-items: center;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
 
 }
-.login{
+.single-link-to-action-navigation:hover{
+    color: var(--purpil);
+}
+.single-link-to-category-navigation:hover{
+    color: var(--purpil);
+}
+
+.login {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     gap: 0.5vw;
 }
-.login-icon{
+
+.login-icon {
     color: rgb(173, 174, 175);
 }
 
+.user-in-container {
 
+    border: solid var(--softpurpil) 2px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+   padding: 10px;
+    margin-right: 12vw;
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+    color: var(--purpil);
+}
 
+.logout-button {
+    width: 2vw;
+    background-color: inherit;
+    color: white;
+    /* font-size: medium; */
+    cursor: pointer;
+}

@@ -54,6 +54,7 @@ const AddUser = () => {
             <option value={false} >לא פעיל</option>
             </select>
             <h5>{err}</h5>
+            {error&&error.data.message}
             <button>הוסף</button>
         </form>
     </div>

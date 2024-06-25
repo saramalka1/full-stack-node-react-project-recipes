@@ -131,3 +131,58 @@
 }
 
 
+/**/
+.custom-modal .ant-modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-modal .custom-ok-button {
+  /* background-color: #ff69b4; וורוד */
+  border-color: var(--purpil);
+  color: black;
+  /* color: white; */
+  width: calc(50% - 8px); /* 8px המרווח בין הכפתורים */
+}
+
+.custom-modal .custom-cancel-button {
+  /* background-color: #32cd32; ירוק */
+  border-color: var(--green);
+  color: black;
+  width: calc(50% - 8px); /* 8px המרווח בין הכפתורים */
+}
+
+.custom-modal .ant-btn:first-child {
+  margin-right: 8px; /* 8px המרווח בין הכפתורים */
+}
+
+/**/
+.custom-modal .ant-modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-modal .custom-ok-button {
+  /* background-color: #ff69b4; וורוד */
+  border-color: var(--purpil);
+  color: black;
+  /* color: white; */
+  width: calc(50% - 8px); /* 8px המרווח בין הכפתורים */
+}
+
+.custom-modal .custom-cancel-button {
+  /* background-color: #32cd32; ירוק */
+  border-color: var(--green);
+  color: black;
+  width: calc(50% - 8px); /* 8px המרווח בין הכפתורים */
+}
+
+.custom-modal .ant-btn:first-child {
+  margin-right: 8px; /* 8px המרווח בין הכפתורים */
+}
+
+
+
+
+
+

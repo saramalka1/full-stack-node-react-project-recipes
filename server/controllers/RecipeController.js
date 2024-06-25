@@ -2,7 +2,7 @@ const Recipe = require('../models/Recipe')
 
 //admin
 const getAllRecipes = async (req, res) => {
-    const recipes = await Recipe.find({ deleted: false }).lean()
+    const recipes = await Recipe.find({ deleted: false }).populate('category').lean()
     if (!recipes) {
         return res.status(404).json({ message: "failed to find recipes." })
     }
@@ -15,44 +15,45 @@ const getAllRecipes = async (req, res) => {
     })
 }
 
-const getRecipeById=async(req,res)=>{
-    const {id}=req.params
-    if(!id){
+const getRecipeById = async (req, res) => {
+    const { id } = req.params
+    if (!id) {
         return res.status(400).json({
-            erroe:true,
-            message:"id is required",
-            data:null
+            erroe: true,
+            message: "id is required",
+            data: null
         })
     }
 
-    const recipe=await Recipe.findById(id).lean()
-    if(!recipe){
+    const recipe = await Recipe.findById(id).lean()
+    if (!recipe) {
         return res.status(400).json({
-            erroe:true,
-            message:"something wrong",
-            data:null
+            erroe: true,
+            message: "something wrong",
+            data: null
         })
     }
 
     return res.status(201).json({
-        erroe:false,
-        message:"",
-        data:recipe
+        erroe: false,
+        message: "",
+        data: recipe
     })
 
-    
+
 
 }
 //user -add recipe
 const createNewRecipe = async (req, res) => {
-    const { name, imgurl, ingredients, instructions,
+    const imgurl = req.file?.filename || ''
+    const { name, ingredients, instructions,
         category, type, level
-        , preparationtime ,description,amount} = req.body
+        , preparationtime, description, amount } = req.body
 
-    if (!name || !imgurl || !ingredients || !instructions || !category) {
+    if (!name || !imgurl || !ingredients || !instructions || !category || !req.user) {
         return res.status(400).json({
             error: true,
-            message: "name,imgurl,ingredients,category and instructions are required",
+            message: "name,imgurl,ingredients,category,writeruser and instructions are required",
             data: null
         })
 
@@ -66,7 +67,7 @@ const createNewRecipe = async (req, res) => {
     const recipe = await Recipe.create({
         name, imgurl, ingredients, instructions,
         writeruser: req.user, category, type, level
-        , preparationtime,description,amount
+        , preparationtime, description, amount
     })
     if (!recipe) {
         return res.status(404).json({
@@ -114,9 +115,10 @@ const updateRecipeByAdmin = async (req, res) => {
 
 //user-update a recipe בתנאי שהוא כתב את המתכון,כלומר יש לעשות מידלור שיבדוק שמי שנמצא ב רק.יזר הוא ה יזרורירט
 const updateRecipeByUser = async (req, res) => {
-    const { id, name, imgurl, ingredients, instructions,
+    const imgurl = req.file?.filename || ''
+    const { id, name, ingredients, instructions,
         category, type, level
-        , preparationtime,description,amount } = req.body
+        , preparationtime, description, amount } = req.body
     if (!id) {
         return res.status(400).json({
             error: true,
@@ -124,7 +126,7 @@ const updateRecipeByUser = async (req, res) => {
             data: null
         })
     }
-    if (!name || !imgurl || !ingredients || !instructions || !category) {
+    if (!name || !ingredients || !instructions || !category) {
         return res.status(400).json({
             error: true,
             message: 'name,imgurl,ingredients,category and instructions are required',
@@ -141,6 +143,7 @@ const updateRecipeByUser = async (req, res) => {
     }
 
     const recipe = await Recipe.findById(id).exec()
+
     if (!recipe) {
         return res.status(404).json({
             error: true,
@@ -148,9 +151,18 @@ const updateRecipeByUser = async (req, res) => {
             data: null
         })
     }
+    // בדיקה שזה המשתמש שרשם את המתכון או מנהל
+    if (recipe.writeruser != req.user._id && req.user.roles != "ADMIN") {
+        return res.status(401).json({
+            error: true,
+            message: "Unauthorized.",
+            data: null
+        })
+    }
 
     recipe.name = name
-    recipe.imgurl = imgurl
+    if (imgurl)
+        recipe.imgurl = imgurl
     recipe.ingredients = recipe.ingredients
     recipe.instructions = instructions
     recipe.category = category
@@ -185,6 +197,7 @@ const deleteRecipe = async (req, res) => {
         })
     }
     const recipe = await Recipe.findById(id).exec()
+
     if (!recipe) {
         return res.status(404).json({
             error: true,
@@ -192,7 +205,14 @@ const deleteRecipe = async (req, res) => {
             data: null
         })
     }
-    recipe.deleted=true
+    if (recipe.writeruser != req.user._id && req.user.roles != "ADMIN") {
+        return res.status(401).json({
+            error: "true",
+            message: "Unauthorized",
+            data: null
+        })
+    }
+    recipe.deleted = true
     const deleted = await recipe.save()
     return res.status(201).json({
         error: false,

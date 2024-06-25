@@ -1,11 +1,13 @@
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { useGetAllCategoriesQuery, useUpdateCategoryMutation } from '../categoryApiSlice'
 import { useState } from 'react'
 import { useGetAllRecipesQuery, useUpdateRecipeAdminMutation } from '../../recipes/RecipeApiSlice'
 import "./single-category.css"
+import useGetFilePath from '../../../hooks/useGetFilePath'
 const SingleCategory = () => {
   const [err, setErr] = useState('')
   const { categoryid } = useParams()
+  const { getFilePath } = useGetFilePath()
   const { isError, error, isLoading, isSuccess, data } = useGetAllCategoriesQuery()
   const { isError: isErrorr, error: errorr, isLoading: isLoadingr, isSuccess: isSuccessr, data: datar } = useGetAllRecipesQuery()
   const [updateCategory, { isSuccess: isSuccessu, isError: isErroru, error: erroru }] = useUpdateCategoryMutation()
@@ -13,47 +15,59 @@ const SingleCategory = () => {
   if (isError) return <h3>{JSON.stringify(error)}</h3>
   if (isLoading) return ""
   const category = data.data?.find(c => c._id == categoryid)
-
+  console.log(category);
   if (isErrorr) return <h3>{JSON.stringify(errorr)}</h3>
   if (isLoadingr) return ""
 
-  const recipes = datar.data?.filter(r => r.category.indexOf(categoryid) > -1)
+  const recipes = datar.data?.filter(r => r.category.filter(c => c._id === categoryid))
+  console.log(datar.data);
   const formSubmit = (e) => {
     e.preventDefault()
     const data = new FormData(e.target)
-    const categoryObj = Object.fromEntries(data.entries())
-    if (!categoryObj.name || !categoryObj.img) {
-      setErr("חובה למלא שם ותמונה")
-      return
-    }
+    // const categoryObj = Object.fromEntries(data.entries())
+    // if (!categoryObj.name || !categoryObj.img) {
+    //   setErr("חובה למלא שם ותמונה")
+    //   return
+    // }
 
-    updateCategory(categoryObj)
+    updateCategory(data)
 
   }
 
-  const resetErr = (e) => {
-    if (e.target.value)
-      setErr('')
-  }
+  // const resetErr = (e) => {
+  //   if (e.target.value)
+  //     setErr('')
+  // }
   return (
     <div className='single-category-container'>
-      <div className='category-properties'>
-        <h3 className='category-title'>{category.name}</h3>
-        <form onSubmit={formSubmit} className='form-category-properties'>
-          <input name="id" defaultValue={category._id} type="hidden" />
+      <div className='single-category-properties'>
+        <div className='single-category-info'>
+          <div className='single-category-img-container'>
+            <img src={getFilePath(category.img) || ''} alt='' fill />
+          </div>
+          {category.name}
+        </div>
+        <div>
+          
+          <form onSubmit={formSubmit} className='form-category-properties'>
+            <input name="id" defaultValue={category._id} type="hidden" />
 
-          <input name="name" defaultValue={category.name} type="text" required placeholder='שם קטגוריה' onChange={resetErr} />
-          <input name="description" defaultValue={category.description ? category.description : ""} type="text" placeholder='תיאור' onChange={resetErr} />
-          <input name="img" type="text" defaultValue={"p.PNG"} required placeholder='בחר תמונה' onChange={resetErr} />
+            <input name="name" defaultValue={category.name} type="text" required placeholder='שם קטגוריה' />
+            <input name="description" defaultValue={category.description ? category.description : ""} type="text" placeholder='תיאור' />
+            <input name="img" type="file" placeholder='בחר תמונה' />
 
 
-          <button>שמור שינויים</button>
-          {err}
+            <button>שמור שינויים</button>
+            {err}
 
-        </form>
+          </form>
+        </div>
       </div>
       <div className='recipes-in-category-container'>
-        <h5 className='title-table-recipe'>מתכונים בקטגוריה זו-</h5>
+        <div className='title-and-add-button-container'>
+        <h5 className='title-table-recipe'> מתכונים בקטגוריה זו:</h5>
+        <NavLink to={'addrecipe'} className={"add-recipe-button"}>הוסף מתכון</NavLink>
+        </div>
         <table className='recipes-table'>
           <thead>
             <tr>
@@ -73,7 +87,7 @@ const SingleCategory = () => {
                       src=''
                       width={40}
                       height={40}
-                    className='recipe-img'
+                      className='recipe-img'
                     />
                     {recipe.name}
 

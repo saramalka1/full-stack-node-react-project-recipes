@@ -1,6 +1,7 @@
 .main-layout-container{
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 .head{
     display: flex;
@@ -13,4 +14,8 @@
     border-bottom: solid rgb(171, 170, 170) 0.7vh;
     align-items: center;
     justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
 }

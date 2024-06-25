@@ -81,7 +81,7 @@ const createNewUser = async (req, res) => {
 //admin
 const updateUser = async (req, res) => {
     const { id, name, email, phone, roles, active, getmailoninsert } = req.body
-    if(!id){
+    if (!id) {
         return res.status(400).json({
             error: true,
             message: "id is required",

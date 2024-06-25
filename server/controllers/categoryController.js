@@ -2,7 +2,7 @@ const Category = require('../models/Category')
 
 //admin 
 const createNewCategory = async (req, res) => {
-    const img = (req.file?.filename ? req.file.filename : "C:/Users/Win 10/Desktop/p.PNG")
+    const img = (req.file?.filename ? req.file.filename : "")
     const { name, description } = req.body
     if (!name) {
         return res.status(400).json(
@@ -32,8 +32,10 @@ const createNewCategory = async (req, res) => {
 }
 
 const updateCategory = async (req, res) => {
-    const { id, name, img, description } = req.body
-    if (!id || !name || !img) {
+    const img = (req.file?.filename ? req.file.filename : "")
+
+    const { id, name, description } = req.body
+    if (!id || !name) {
         return res.status(400).json(
             {
                 error: true,
@@ -53,7 +55,8 @@ const updateCategory = async (req, res) => {
         )
     }
     update.name = name
-    update.img = img
+    if (img)
+        update.img = img
     update.description = description
     const updated = await update.save()
     if (!updated) {

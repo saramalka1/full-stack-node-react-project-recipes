@@ -5,14 +5,15 @@ const allowedOrigins=[
 ]
 const corsOption={
     origin:(origin,callback)=>{
-        if(allowedOrigins.indexOf(origin)!=1||!origin){
+        if(allowedOrigins.indexOf(origin)!==-1||!origin){
             callback(null,true)
         }
         else
-        callback(new Error("not allowed"))
+        callback(new Error("not allowed by CORS"))
 
     },
-    Credential:true,
-    optionsSuccessStatus:200
+    credentials:true,
+    optionsSuccessStatus:200,
+    allowedHeaders: ['Authorization', 'Content-Type'] 
 }
 module.exports=corsOption
