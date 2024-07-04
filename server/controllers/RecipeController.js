@@ -14,6 +14,20 @@ const getAllRecipes = async (req, res) => {
         data: recipes
     })
 }
+// User
+const getAllRecipesShow = async (req, res) => {
+    const recipes = await Recipe.find({ deleted: false,show:true }).populate('category').lean()
+    if (!recipes) {
+        return res.status(404).json({ message: "failed to find recipes." })
+    }
+
+
+    return res.status(201).json({
+        error: false,
+        message: "",
+        data: recipes
+    })
+}
 
 const getRecipeById = async (req, res) => {
     const { id } = req.params
@@ -50,6 +64,8 @@ const createNewRecipe = async (req, res) => {
         category, type, level
         , preparationtime, description, amount } = req.body
 
+        // console.log("User Info:", req.user);
+
     if (!name || !imgurl || !ingredients || !instructions || !category || !req.user) {
         return res.status(400).json({
             error: true,
@@ -66,7 +82,7 @@ const createNewRecipe = async (req, res) => {
         })
     const recipe = await Recipe.create({
         name, imgurl, ingredients, instructions,
-        writeruser: req.user, category, type, level
+        writeruser: req.user._id, category, type, level
         , preparationtime, description, amount
     })
     if (!recipe) {
@@ -231,5 +247,6 @@ module.exports = {
     updateRecipeByUser,
     deleteRecipe,
     getAllRecipes,
-    getRecipeById
+    getRecipeById,
+    getAllRecipesShow
 }

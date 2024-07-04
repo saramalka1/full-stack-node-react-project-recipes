@@ -8,6 +8,7 @@ const { createNewRecipe,
     updateRecipeByUser,
     deleteRecipe,
     getAllRecipes ,
+    getAllRecipesShow,
     getRecipeById} = require('../controllers/RecipeController')
 
 
@@ -25,8 +26,10 @@ const { createNewRecipe,
       const upload = multer({ storage: storage })
     ////////////
 
-//זה אפשרי בכל לכל סוג משתמש  
-router.get('/', getAllRecipes)
+//זה אפשרי בכל לכל סוג משתמש 
+router.get('/recipesshow',getAllRecipesShow) 
+//רק למנהל
+router.get('/',verifyJwt,verifyAdmin, getAllRecipes)
 router.get('/:id',getRecipeById)
 //משתמש רשום
 router.post('/', verifyJwt,upload.single('imgurl'),createNewRecipe)

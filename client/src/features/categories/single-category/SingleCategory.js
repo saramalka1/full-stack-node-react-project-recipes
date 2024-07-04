@@ -1,9 +1,11 @@
 import { NavLink, useParams } from 'react-router-dom'
 import { useGetAllCategoriesQuery, useUpdateCategoryMutation } from '../categoryApiSlice'
 import { useState } from 'react'
-import { useGetAllRecipesQuery, useUpdateRecipeAdminMutation } from '../../recipes/RecipeApiSlice'
+import { useDeleteRecipeMutation, useGetAllRecipesQuery, useUpdateRecipeAdminMutation, } from '../../recipes/RecipeApiSlice'
 import "./single-category.css"
+import { Button, Modal } from 'antd';
 import useGetFilePath from '../../../hooks/useGetFilePath'
+import { IoTrashOutline } from 'react-icons/io5'
 const SingleCategory = () => {
   const [err, setErr] = useState('')
   const { categoryid } = useParams()
@@ -11,6 +13,7 @@ const SingleCategory = () => {
   const { isError, error, isLoading, isSuccess, data } = useGetAllCategoriesQuery()
   const { isError: isErrorr, error: errorr, isLoading: isLoadingr, isSuccess: isSuccessr, data: datar } = useGetAllRecipesQuery()
   const [updateCategory, { isSuccess: isSuccessu, isError: isErroru, error: erroru }] = useUpdateCategoryMutation()
+  const [deleteRecipef,{isSuccess:isSuccessd,isError:isErrord,error:errord}]=useDeleteRecipeMutation()
   const [updateShow, { }] = useUpdateRecipeAdminMutation()
   if (isError) return <h3>{JSON.stringify(error)}</h3>
   if (isLoading) return ""
@@ -19,25 +22,37 @@ const SingleCategory = () => {
   if (isErrorr) return <h3>{JSON.stringify(errorr)}</h3>
   if (isLoadingr) return ""
 
-  const recipes = datar.data?.filter(r => r.category.filter(c => c._id === categoryid))
-  console.log(datar.data);
+  const recipes = datar.data?.filter(r => r.category.find(c => c._id === categoryid))
+  console.log(recipes);
   const formSubmit = (e) => {
     e.preventDefault()
     const data = new FormData(e.target)
-    // const categoryObj = Object.fromEntries(data.entries())
-    // if (!categoryObj.name || !categoryObj.img) {
-    //   setErr("חובה למלא שם ותמונה")
-    //   return
-    // }
+    
 
     updateCategory(data)
 
   }
 
-  // const resetErr = (e) => {
-  //   if (e.target.value)
-  //     setErr('')
-  // }
+
+  const deleteRecipe = (id) => {
+    Modal.confirm({
+        title: 'האם אתה בטוח שברצונך למחוק את המתכון?',
+        okText: 'אני רוצה למחוק',
+        okType: 'danger',
+        cancelText: 'ביטול',
+        // icon: <ExclamationCircleOutlined className="custom-icon" />,          
+              className: 'custom-modal', // קבוצת הסגנון שלי
+        okButtonProps: { className: 'custom-ok-button' }, // סגנון הכפתור "מחק"
+        cancelButtonProps: { className: 'custom-cancel-button' }, // סגנון הכפתור "בטל"
+        onOk() {
+            deleteRecipef(id);
+        },
+        onCancel() {
+            console.log('בוטל מחיקת המתכון');
+        },
+    });
+};
+  
   return (
     <div className='single-category-container'>
       <div className='single-category-properties'>
@@ -76,6 +91,7 @@ const SingleCategory = () => {
               <td>סוג</td>
               <td>זמן הכנה</td>
               <td>מוצג?</td>
+              <td>פעולות</td>
             </tr>
           </thead>
           <tbody>
@@ -84,7 +100,7 @@ const SingleCategory = () => {
                 <td className='recipes-list-recipe'>
                   <div className='recipe-name-image'>
                     <img
-                      src=''
+                      src={getFilePath(recipe.imgurl)}
                       width={40}
                       height={40}
                       className='recipe-img'
@@ -107,7 +123,10 @@ const SingleCategory = () => {
                   {recipe.show ? <td>כן</td> : <td>לא</td>}
                   <button className="change-show" onClick={() => updateShow({ id: recipe._id, show: !recipe.show })}>החלף</button>
                 </div>
-
+                <td>
+<button onClick={()=>deleteRecipe(recipe._id)} className='delete-recipe-button'><IoTrashOutline/></button>
+<NavLink to={`/categories/${categoryid}/${recipe._id}/update`} className={"edit-recipe-button"}>עריכה</NavLink>
+</td>
               </tr>
             })}
           </tbody>

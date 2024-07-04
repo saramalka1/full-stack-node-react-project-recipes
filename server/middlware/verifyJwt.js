@@ -20,6 +20,7 @@ const verifyJwt = async (req, res, next) => {
                     data: null
                 })
             }
+            // console.log("Decoded JWT:", decode);
             req.user = decode
             next()
         })

@@ -71,12 +71,12 @@ const login = async (req, res) => {
         email: founduser.email,
         phone: founduser.phone
     }
-    const accessToken = jwt.sign(userInformation, process.env.SYSTEM_TOKEN_PASSWORD, {expiresIn: '15m'})
-    
-    const refreshToken = jwt.sign({ username: founduser.username }, process.env.REFRESH_TOKEN_PASSWORD, {expiresIn: '7d'})
+    const accessToken = jwt.sign(userInformation, process.env.SYSTEM_TOKEN_PASSWORD, { expiresIn: '15m' })
+
+    const refreshToken = jwt.sign({ username: founduser.username }, process.env.REFRESH_TOKEN_PASSWORD, { expiresIn: '7d' })
     res.cookie("jwt", refreshToken, {
         httpOnly: true,
-        maxAge: 7*24*60*60*1000
+        maxAge: 7 * 24 * 60 * 60 * 1000
     })
 
     res.json({ accessToken })
@@ -88,6 +88,7 @@ const login = async (req, res) => {
 
 const refresh = async (req, res) => {
     const cookies = req.cookies
+    //if there is not a jwt in cookies
     if (!cookies?.jwt) {
         return res.status(401).json({
             error: true,
@@ -95,6 +96,8 @@ const refresh = async (req, res) => {
             data: null
         })
     }
+
+    //if there is a jwt cookies,verifying:
     const refreshToken = cookies.jwt
 
     jwt.verify(refreshToken,
@@ -109,7 +112,7 @@ const refresh = async (req, res) => {
             }
             const foundUser = await User.findOne({ username: decode.username, deleted: false, active: true }).lean()
             const userInfo = {
-                _id: foundUser.id,
+                _id: foundUser._id,
                 username: foundUser.username,
                 name: foundUser.name,
                 roles: foundUser.roles,
@@ -125,30 +128,30 @@ const refresh = async (req, res) => {
 }
 
 const logout = async (req, res) => {
-const cookies=req.cookies
-if(!cookies?.jwt){
-    return res.status(204).json({
-        error: true,
-        message: "No Content",
+    const cookies = req.cookies
+    if (!cookies?.jwt) {
+        return res.status(204).json({
+            error: true,
+            message: "No Content",
+            data: null
+        })
+    }
+
+    res.clearCookie("jwt", {
+        httpOnly: true
+    })
+
+    res.json({
+        error: false,
+        message: "Cookie Cleard",
         data: null
     })
 }
 
-res.clearCookie("jwt",{
-    httpOnly: true
-})
-
-res.json({
-    error: false,
-    message: "Cookie Cleard",
-    data: null
-})
-}
 
 
 
 
 
-
-module.exports = { register, login, refresh ,logout}
+module.exports = { register, login, refresh, logout }
 

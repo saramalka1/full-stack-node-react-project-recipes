@@ -1,97 +1,27 @@
-/* .single-user-container {
-    display: flex;
-    gap: 50px;
-    margin-top: 20px;
-    align-content: center;
-    border-radius: 15px;
-    
-  }
-  label{
-    color:var(--green)
-  }
+
   
-  .single-user-info {
-    /* flex: 1; */
-    /* background-color: var(--bgSoft); */
-    /* padding: 20px;
-    border-radius: 10px;
-    font-weight: bold;
-    color: var(--purpil);
-    height: max-content;
-    align-content: center;
-  }
-   */
-  /* .single-user-img-container{
-    width: 100%;
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 20px;
-  } */
-  /* .single-user-img-container img{
-   object-fit: contain;
-   width: 100% !important;
-  } */
-  
-  /* .single-user-form-container {
-    /* flex: 3; */
-    /* align-items: center;
-    width: 90vw;
-    background-color: var(--softgreen);
-    
-    margin: 5vw;
-    border-radius: 10px;
-    align-content: center;
-  }
-   */
-  /* .single-user-form{
-    
+ 
+ .single-user-form-container{
+  min-height: 150vh;
+    width: 98.9vw;
+    padding:5vw ;
     display: flex;
     flex-direction: column;
-    width: 60vw;
-    align-content: center;
-    padding-right: 25vw;
-  } */
-  
-  /* .single-user-form input, .single-user-form textarea, .single-user-form select{
-    padding: 15px;
-    border: 2px solid var(--inputBorder);
-    border-radius: 5px;
-    color: var(--text);
-    margin: 10px 0px;
-
-  }
-   */
-  
-  /* .single-user-form label{
-    font-size: 150%;
-  }
-  
-  .single-user-form button{
-    width: 100%;
-    padding: 20px; */
-    /* background-color: var(--greenSoft);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  .single-user-form button ,input{
-    font-size: 1.1rem; */
-  /* } */
- .single-user-form-container{
-  min-height: 90vh;
-  margin-top: 7vh;
-  margin-right: 30vw;
+    align-items: center;
+    background-color: var(--softpurpil);
  }
  /* זה הפורם   */
  .single-user-form{
-  display: flex;
-  gap: 3vh;
-  flex-direction: column;
-  justify-items: center;
-  align-content: center;
+  border: solid 1px var(--purpil);
+  border-radius: 10px;
+      background-color: white;
+      width: 60vw;
+      height: 150vh;
+      padding: 3vw;
+      display: flex;
+      gap: 5vh;
+      flex-direction: column;
+      align-items: center;
  }
  .single-user-form label{
   

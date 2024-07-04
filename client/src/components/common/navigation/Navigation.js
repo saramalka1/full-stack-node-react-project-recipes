@@ -30,7 +30,7 @@ navigate('/')
         <div className="navigation-recipes">
           {
             categories.data?.map(cat => {
-              return <NavLink to={`recipes/${cat._id}`} className={'single-link-to-category-navigation'}>{cat.name}</NavLink>
+              return <NavLink to={`/client/category/${cat._id}`} className={'single-link-to-category-navigation'}>{cat.name}</NavLink>
             })
           }
         </div>

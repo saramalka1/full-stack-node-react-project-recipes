@@ -8,6 +8,12 @@ const recipeApiSlice = apiSlice.injectEndpoints({
             }),
             providesTags: ['recipes']
         }),
+        getAllRecipesShow: build.query({
+            query: () => ({
+                url: "/api/recipes/recipesshow"
+            }),
+            providesTags: ['recipes']
+        }),
         addRecipe: build.mutation({
             query: (recipe) => ({
                 url: "/api/recipes",
@@ -16,6 +22,7 @@ const recipeApiSlice = apiSlice.injectEndpoints({
             }),
             invalidatesTags: ['recipes']
         }),
+        //i dont use this function (updateRecipeAdmin) 
         updateRecipeAdmin: build.mutation({
             query: (recipe) => ({
                 url: "/api/recipes/adminupdaterecipe",
@@ -46,4 +53,5 @@ export const { useGetAllRecipesQuery,
 useAddRecipeMutation,
 useUpdateRecipeAdminMutation,
 useUpdateRecipeUserMutation,
-useDeleteRecipeMutation}=recipeApiSlice
+useDeleteRecipeMutation,
+useGetAllRecipesShowQuery}=recipeApiSlice

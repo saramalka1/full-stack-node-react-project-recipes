@@ -18,6 +18,7 @@ const baseQuery=fetchBaseQuery({
 
  const baseQueryWithReauth=async( args,api,extreOptions)=>{
     let result=await baseQuery(args,api,extreOptions)
+    // אם הבנתי נכון-זה אומר שאם יש איזושהי בעיה אם הטוקן כלומר-זה בעצם נתקע במידל וייר אז תשלח רפרש-טוקן
     if(result?.error?.status===403){
         console.log("sending refresh token");
         //the new token
@@ -28,7 +29,7 @@ const baseQuery=fetchBaseQuery({
         }
         else{
             if(refreshResult?.error?.status===403){
-                console.log("azr",refreshResult);
+                //console.log("azr",refreshResult);
                 refreshResult.error.data.message=" your login has expired."
                 
 

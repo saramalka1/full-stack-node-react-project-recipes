@@ -9,6 +9,13 @@ const categoryApiSlice = apiSlice.injectEndpoints({
             }),
             providesTags:['categories']
         }),
+        getCategoryById: build.mutation({
+            query: (id) => ({
+                url: `/api/category/${id}`,
+                method: 'GET',
+            }),
+            
+        }),
         addCategory: build.mutation({
             query: (category) => ({
                 url: '/api/category',
@@ -40,6 +47,7 @@ const categoryApiSlice = apiSlice.injectEndpoints({
 })
 
 export const { useGetAllCategoriesQuery,
+    useGetCategoryByIdMutation,
     useAddCategoryMutation,
     useDeleteCategoryMutation,
     useUpdateCategoryMutation } = categoryApiSlice

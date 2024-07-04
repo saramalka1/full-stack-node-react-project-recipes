@@ -150,3 +150,15 @@ justify-items: center;
   border: none;
   padding: 7px;
 }
+.recipes-table .delete-recipe-button{
+  width: 3vw;
+  height: 5vh;
+  padding: 1vh;
+  border: none;
+  cursor: pointer;
+}
+.recipes-table .edit-recipe-button{
+ background-color: rgba(160, 164, 164, 0.109);
+ padding: 1vh;
+ margin: 3px;
+}
