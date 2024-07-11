@@ -80,7 +80,7 @@ const updateCategory = async (req, res) => {
 }
 
 const getCategoryes = async (req, res) => {
-    const categoryes = await Category.find({ deleted: false }).lean()
+    const categoryes = await Category.find({ deleted: false }).sort({name:1}).lean()
     if (!categoryes) {
         return res.status(404).json(
             {

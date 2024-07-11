@@ -12,7 +12,28 @@ const recipeApiSlice = apiSlice.injectEndpoints({
             query: () => ({
                 url: "/api/recipes/recipesshow"
             }),
-            providesTags: ['recipes']
+            providesTags: ['recipesShow']
+        }),
+        getLatestRecipes: build.query(
+            {
+                query: () => ({
+                    url: "/api/recipes/latestrecipes"
+                }),
+                providesTags: ['latestRecipes']
+            }
+        ),
+        getLatestRecipesByCategoryId: build.mutation({
+            query: (id) => ({
+                url: "/api/recipes/latestrecipesbycategoryid/" + id,
+                method: 'GET'
+            }),
+            providesTags: ['latestRecipesByCategoryId']
+        }),
+        getRecipeById: build.mutation({
+            query: (id) => ({
+                url: "/api/recipes/" + id,
+                method: 'GET'
+            })
         }),
         addRecipe: build.mutation({
             query: (recipe) => ({
@@ -20,16 +41,16 @@ const recipeApiSlice = apiSlice.injectEndpoints({
                 method: "POST",
                 body: recipe
             }),
-            invalidatesTags: ['recipes']
+            invalidatesTags: ['recipes', 'latestRecipesByCategoryId', 'latestRecipes', 'recipesShow']
         }),
-        //i dont use this function (updateRecipeAdmin) 
+        //i  use this function (updateRecipeAdmin) for update shoe recipe
         updateRecipeAdmin: build.mutation({
             query: (recipe) => ({
                 url: "/api/recipes/adminupdaterecipe",
                 method: 'PUT',
                 body: recipe
             }),
-            invalidatesTags: ['recipes']
+            invalidatesTags: ['recipes', 'latestRecipesByCategoryId', 'latestRecipes', 'recipesShow']
         }),
         updateRecipeUser: build.mutation({
             query: (recipe) => ({
@@ -37,21 +58,24 @@ const recipeApiSlice = apiSlice.injectEndpoints({
                 method: 'PUT',
                 body: recipe
             }),
-            invalidatesTags: ['recipes']
+            invalidatesTags: ['recipes', 'latestRecipesByCategoryId', 'latestRecipes', 'recipesShow']
         }),
         deleteRecipe: build.mutation({
             query: (id) => ({
                 url: `/api/recipes/${id}`,
                 method: "PUT"
             }),
-            invalidatesTags: ['recipes']
+            invalidatesTags: ['recipes', 'latestRecipesByCategoryId', 'latestRecipes', 'recipesShow']
         })
     })
 })
 
 export const { useGetAllRecipesQuery,
-useAddRecipeMutation,
-useUpdateRecipeAdminMutation,
-useUpdateRecipeUserMutation,
-useDeleteRecipeMutation,
-useGetAllRecipesShowQuery}=recipeApiSlice
+    useAddRecipeMutation,
+    useUpdateRecipeAdminMutation,
+    useUpdateRecipeUserMutation,
+    useDeleteRecipeMutation,
+    useGetAllRecipesShowQuery,
+    useGetLatestRecipesQuery,
+    useGetLatestRecipesByCategoryIdMutation,
+    useGetRecipeByIdMutation } = recipeApiSlice

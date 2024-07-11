@@ -9,7 +9,9 @@ const { createNewRecipe,
     deleteRecipe,
     getAllRecipes ,
     getAllRecipesShow,
-    getRecipeById} = require('../controllers/RecipeController')
+    getRecipeById,
+    getLatestRecipes,
+    getLatestRecipesByCategoryId} = require('../controllers/RecipeController')
 
 
     ////////////
@@ -28,9 +30,11 @@ const { createNewRecipe,
 
 //זה אפשרי בכל לכל סוג משתמש 
 router.get('/recipesshow',getAllRecipesShow) 
+router.get('/latestrecipes',getLatestRecipes) 
+router.get('/latestrecipesbycategoryid/:id',getLatestRecipesByCategoryId)
+router.get('/:id',getRecipeById)
 //רק למנהל
 router.get('/',verifyJwt,verifyAdmin, getAllRecipes)
-router.get('/:id',getRecipeById)
 //משתמש רשום
 router.post('/', verifyJwt,upload.single('imgurl'),createNewRecipe)
 //מנהל מעדכן מתכון

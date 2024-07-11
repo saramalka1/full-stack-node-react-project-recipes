@@ -1,6 +1,5 @@
 import apiSlice from '../../app/apiSlice'
 
-
 const categoryApiSlice = apiSlice.injectEndpoints({
     endpoints: (build) => ({
         getAllCategories: build.query({

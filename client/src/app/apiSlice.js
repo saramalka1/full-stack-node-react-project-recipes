@@ -18,13 +18,15 @@ const baseQuery=fetchBaseQuery({
 
  const baseQueryWithReauth=async( args,api,extreOptions)=>{
     let result=await baseQuery(args,api,extreOptions)
-    // אם הבנתי נכון-זה אומר שאם יש איזושהי בעיה אם הטוקן כלומר-זה בעצם נתקע במידל וייר אז תשלח רפרש-טוקן
+    // אם הבנתי נכון-זה אומר שאם יש איזושהי בעיה עם הטוקן כלומר-זה בעצם נתקע במידל וייר אז תשלח רפרש-טוקן
     if(result?.error?.status===403){
         console.log("sending refresh token");
         //the new token
         const refreshResult=await baseQuery('/api/auth/refresh',api,extreOptions)
         if(refreshResult?.data){
             api.dispatch(setToken({...refreshResult.data}))
+            //מה שריקי אמרה
+            // api.dispatch(setToken(refreshResult.data.accessToken))
             result=await baseQuery(args,api,extreOptions)
         }
         else{

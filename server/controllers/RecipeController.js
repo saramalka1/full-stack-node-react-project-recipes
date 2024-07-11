@@ -2,7 +2,7 @@ const Recipe = require('../models/Recipe')
 
 //admin
 const getAllRecipes = async (req, res) => {
-    const recipes = await Recipe.find({ deleted: false }).populate('category').lean()
+    const recipes = await Recipe.find({ deleted: false }).populate('category').sort({name:1}).lean()
     if (!recipes) {
         return res.status(404).json({ message: "failed to find recipes." })
     }
@@ -16,7 +16,7 @@ const getAllRecipes = async (req, res) => {
 }
 // User
 const getAllRecipesShow = async (req, res) => {
-    const recipes = await Recipe.find({ deleted: false,show:true }).populate('category').lean()
+    const recipes = await Recipe.find({ deleted: false, show: true }).populate('category').sort({name:1}).lean()
     if (!recipes) {
         return res.status(404).json({ message: "failed to find recipes." })
     }
@@ -39,7 +39,7 @@ const getRecipeById = async (req, res) => {
         })
     }
 
-    const recipe = await Recipe.findById(id).lean()
+    const recipe = await Recipe.findById(id).populate('writeruser').lean()
     if (!recipe) {
         return res.status(400).json({
             erroe: true,
@@ -64,7 +64,7 @@ const createNewRecipe = async (req, res) => {
         category, type, level
         , preparationtime, description, amount } = req.body
 
-        // console.log("User Info:", req.user);
+    // console.log("User Info:", req.user);
 
     if (!name || !imgurl || !ingredients || !instructions || !category || !req.user) {
         return res.status(400).json({
@@ -238,6 +238,52 @@ const deleteRecipe = async (req, res) => {
 
 }
 
+const getLatestRecipes = async (req, res) => {
+    const latestRecipes = await Recipe.find({ deleted: false, show: true })
+        .sort({ createdAt: -1 }).limit(4)
+    if (!latestRecipes) {
+        return res.status(404).json({
+            error: true,
+            message: "something wrong",
+            data: null
+        })
+    }
+    return res.status(201).json({
+        error: false,
+        message: "",
+        data: latestRecipes
+    })
+
+}
+
+const getLatestRecipesByCategoryId = async (req, res) => {
+    const {id}=req.params
+    if (!id) {
+        return res.status(400).json({
+            error: true,
+            message: "id is required",
+            data: null
+        })
+    }
+    
+    const latestRecipes = await Recipe.find({ category:id,deleted: false, show: true })
+        .sort({ createdAt: -1 }).limit(4)
+        
+    if (!latestRecipes) {
+        return res.status(404).json({
+            error: true,
+            message: "something wrong",
+            data: null
+        })
+    }
+    return res.status(201).json({
+        error: false,
+        message: "",
+        data: latestRecipes
+    })
+
+}
+
 
 
 
@@ -248,5 +294,7 @@ module.exports = {
     deleteRecipe,
     getAllRecipes,
     getRecipeById,
-    getAllRecipesShow
+    getAllRecipesShow,
+    getLatestRecipes,
+    getLatestRecipesByCategoryId
 }

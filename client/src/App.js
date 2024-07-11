@@ -18,6 +18,8 @@ import AddRecipe from './features/categories/add-recipe/AddRecipe';
 import AddRecipec from './features/recipes/add-recipe/AddRecipec';
 import CategoryLayoutc from './features/recipes/categoryLayoutc/CategoryLayoutc';
 import UpdateRecipe from './features/categories/update-recipe/UpdateRecipe'
+import SingleRecipec from './features/recipes/single-recipec/SingleRecipec';
+import CheckLoginNotRequired from './features/auth/CheckLoginNotRequired';
 
 function App() {
 
@@ -29,51 +31,52 @@ function App() {
       {/*   הערה כללית- תיקיית קטגוריה מתייחס יותר למנהל ותיקיית מתכונים יותר למשתמש כדי להפריד-מה ששיך למשתמש הוספתי אות סי בסוף  */}
       <Router>
         <Routes>
-          <Route path='/' element={<MainLayout />}>
-            <Route index element={<FirstPage />} />
-            {/* כניסה והרשמה */}
-            <Route path='/login' element={<LoginPage />} />
-            <Route path='/login/register' element={<RegisterPage />} />
+          <Route element={<CheckLoginNotRequired />} >
+            <Route path='/' element={<MainLayout />}>
 
-            {/* מתכונים למשתמש */}
-            {/* מפנה לקטגוריה מסוימת */}
-            <Route path='/client/category/:catid' element={<CategoryLayoutc />}>
-              {/* אפשרות הוספה לקטגוריה הנוכחית */}
-              <Route element={<PersistLogin />} >
-                <Route element={<RequireAuth allowRoles={['ADMIN', 'USER']} />} >
-                  <Route path='add' element={<AddRecipec />} />
+              {/* כניסה והרשמה */}
+              <Route path='/login' element={<LoginPage />} />
+              <Route path='/login/register' element={<RegisterPage />} />
+              <Route index element={<FirstPage />} />
+              {/* מתכונים למשתמש */}
+              {/* מפנה לקטגוריה מסוימת */}
+              <Route path='/client/category/:catid' element={<CategoryLayoutc />}>
+                {/* אפשרות הוספה לקטגוריה הנוכחית */}
+                <Route element={<PersistLogin />} >
+                  <Route element={<RequireAuth allowRoles={['ADMIN', 'USER']} />} >
+                    <Route path='add' element={<AddRecipec />} />
+                  </Route>
                 </Route>
               </Route>
-            </Route>
-            {/* מפנה למתכון מסוים */}
-            <Route path='/client/categoty/:catid/:recid' element={<h1>recipeLayout</h1>}>
-              {/* כל הזמן יראו את המתכון,ויהיה אפשרות להוסיף הערה */}
-              <Route path='addcomment' element={<h1>add comment</h1>} />
-            </Route>
+              {/* מפנה למתכון מסוים */}
+              <Route path='/client/categoty/:catid/:recid' element={<SingleRecipec />}>
+                {/* כל הזמן יראו את המתכון,ויהיה אפשרות להוסיף הערה */}
+                <Route path='addcomment' element={<h1>add comment</h1>} />
+              </Route>
 
 
 
-            <Route element={<PersistLogin />} >
-              <Route element={<RequireAuth allowRoles={['ADMIN']} />} >
-                {/* //users-for admin */}
-                <Route path='users' element={<Outlet />}>
-                  <Route index element={<UserList />} />
-                  <Route path='add' element={<AddUser />} />
-                  <Route path=':userid' element={<SingleUser />} />
-                </Route>
-                {/* //categories and recipes-for admin */}
-                <Route path='categories' element={<Outlet />}>
-                  <Route index element={<CategoriesList />} />
-                  <Route path='add' element={<AddCategory />} />
-                  <Route path=':categoryid' element={<SingleCategory />} />
-                  <Route path=':categoryid/addrecipe' element={<AddRecipe />} />
-                  <Route path=':categoryid/:recipeid/update' element={<UpdateRecipe />} />
-                  {/* <Route path=':categoryid/recipes' element={<h1>dfgh!!!</h1>}/> */}
+              <Route element={<PersistLogin />} >
+                <Route element={<RequireAuth allowRoles={['ADMIN']} />} >
+                  {/* //users-for admin */}
+                  <Route path='users' element={<Outlet />}>
+                    <Route index element={<UserList />} />
+                    <Route path='add' element={<AddUser />} />
+                    <Route path=':userid' element={<SingleUser />} />
+                  </Route>
+                  {/* //categories and recipes-for admin */}
+                  <Route path='categories' element={<Outlet />}>
+                    <Route index element={<CategoriesList />} />
+                    <Route path='add' element={<AddCategory />} />
+                    <Route path=':categoryid' element={<SingleCategory />} />
+                    <Route path=':categoryid/addrecipe' element={<AddRecipe />} />
+                    <Route path=':categoryid/:recipeid/update' element={<UpdateRecipe />} />
+                    {/* <Route path=':categoryid/recipes' element={<h1>dfgh!!!</h1>}/> */}
+                  </Route>
                 </Route>
               </Route>
             </Route>
           </Route>
-
         </Routes>
       </Router>
     </div >

@@ -101,3 +101,35 @@
     /* font-size: medium; */
     cursor: pointer;
 }
+.icon-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .exit-icon {
+    color: var(--purpil);
+    margin: 2vh;
+    font-size: 48px; /* הגדלת גודל האייקון */
+    font-weight: bold; /* הפיכת האייקון לעבה יותר */
+  }
+  
+  .tooltip {
+    visibility: hidden;
+    background-color: #fff;
+    color:var(--purpil);
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%; /* מיקום הטקסט בצד ימין של האייקון */
+    transform: translateY(-50%);
+    white-space: nowrap; /* למנוע שבירת שורה */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .icon-container:hover .tooltip {
+    visibility: visible;
+  }

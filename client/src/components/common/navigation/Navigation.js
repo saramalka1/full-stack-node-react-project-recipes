@@ -1,6 +1,8 @@
 import { NavLink, useNavigate } from "react-router-dom"
 import { useGetAllCategoriesQuery } from "../../../features/categories/categoryApiSlice"
 import { IoMdContact } from "react-icons/io";
+import { IoIosReturnLeft } from "react-icons/io";
+
 import './navigation.css'
 import { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
@@ -61,9 +63,10 @@ navigate('/')
        <div className="user-in-container">
         <div> שלום {name} </div>
       <button onClick={logoutClick} className="logout-button">
-        {/* <div className="user-exit-in-button"> */}
-        
-      <MdLogout/>
+      <div className="icon-container">
+      <IoIosReturnLeft className="exit-icon" />
+      <span className="tooltip">התנתקות</span>
+    </div>
         {/* </div> */}
       </button>
       </div>

@@ -1,5 +1,7 @@
 import { Outlet } from "react-router-dom"
 import Navigation from "../navigation/Navigation"
+import { MdOutlineCopyright } from "react-icons/md";
+
 import './mainLayout.css'
 const MainLayout = () => {
   return (
@@ -15,8 +17,8 @@ const MainLayout = () => {
       <div>
         <Outlet />
       </div>
-      <div>
-        footer
+      <div className="footer">
+        כל הזכויות שמורות <MdOutlineCopyright/>
       </div>
     </div>
   )

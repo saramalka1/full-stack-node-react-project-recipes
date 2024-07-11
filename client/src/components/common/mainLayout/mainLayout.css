@@ -19,3 +19,13 @@
     z-index: 1;
 
 }
+.footer{
+    display: flex;
+    align-items: center;
+    /* background-color: black; */
+    /* text-align: center; */
+    color: var(--green);
+    margin-top: 5vh;
+    padding: 2vh;
+
+}
