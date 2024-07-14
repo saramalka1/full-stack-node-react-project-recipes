@@ -1,18 +1,33 @@
-const mongoose=require('mongoose')
+const mongoose = require('mongoose')
 
-const bookSchema=new mongoose.Schema(
+const bookSchema = new mongoose.Schema(
     {
         //של מי הספר(הרשימה)
-        user:{
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'User'
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
         },
         //מערך של המתכונים בספר האישי
-        recipes:{
-            type:[{type:mongoose.Schema.Types.ObjectId,ref:'Recipe'}]
+        recipes: {
+            type:
+                [
+                    {
+                        recipe: {
+                            type: mongoose.Schema.Types.ObjectId
+                            , ref: 'Recipe'
+                        },
+                        deleted:{
+                            type:Boolean,
+                            default:false
+                        },
+                        mycomments:{
+                            type:[String]
+                        }
+                    }
+                ]
         }
     },
-    {timestamps:true}
+    { timestamps: true }
 )
 
-module.exports=mongoose.model('PersonalBook',bookSchema)
+module.exports = mongoose.model('PersonalBook', bookSchema)
