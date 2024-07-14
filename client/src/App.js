@@ -20,6 +20,8 @@ import CategoryLayoutc from './features/recipes/categoryLayoutc/CategoryLayoutc'
 import UpdateRecipe from './features/categories/update-recipe/UpdateRecipe'
 import SingleRecipec from './features/recipes/single-recipec/SingleRecipec';
 import CheckLoginNotRequired from './features/auth/CheckLoginNotRequired';
+import RecipeLayoutc from './features/recipes/recipeLayoutc/RecipeLayoutc.js';
+import UpdateRecipec from './features/recipes/update-recipec/UpdateRecipec.js';
 
 function App() {
 
@@ -49,9 +51,8 @@ function App() {
                 </Route>
               </Route>
               {/* מפנה למתכון מסוים */}
-              <Route path='/client/categoty/:catid/:recid' element={<SingleRecipec />}>
-                {/* כל הזמן יראו את המתכון,ויהיה אפשרות להוסיף הערה */}
-                <Route path='addcomment' element={<h1>add comment</h1>} />
+              <Route path='/client/category/:catid/:recid' element={<RecipeLayoutc />}>
+<Route path='update' element={<UpdateRecipec/>}/>
               </Route>
 
 

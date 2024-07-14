@@ -38,7 +38,7 @@ navigate('/')
         </div>
       </div>
 
-      <NavLink to='/pbook/:id'>חוברת מתכונים</NavLink>
+      {/* <NavLink to='/pbook/:id'>חוברת מתכונים</NavLink> */}
 
       {isAdmin && <div className="navigation-adminActions-container">
         פעולות

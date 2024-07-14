@@ -34,15 +34,20 @@
 font-size: 190%;
 }
 .add-recipe-button-client{
-    font-size:  130%;
+    display: flex;
+    gap: 22vw;
+    align-items: center;
+    font-size:  103%;
+    font-weight: bolder;
     width: 80vw;
     background-color: white;
     text-align: center;
     padding: 2vh;
-    color: var(--green);
-    border: solid 1px var(--green);
+    color: gray;
+    
 }
 .recipes-sub-container-client{
+    
     margin-top: 5vh;
     width: 80vw;
     display: grid;

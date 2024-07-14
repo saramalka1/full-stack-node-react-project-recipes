@@ -161,14 +161,38 @@
     font-size: 120%;
 }
 
-.wish {
-    width: 100%;
+
+
+
+.single-ingredient.done,
+.single-instruction.done {
+    text-decoration: line-through;
+    color: gray;
+}
+
+input[type='checkbox'] {
+    margin-left: 10px;
+    margin-right: 10px;
+   
+}
+
+.wish-and-actions{
+    margin: 2vh;
+    width: 98%;
     height: 10vh;
-    background-color: var(--purpil);
-    color: white;
-    text-align: center;
-    margin-bottom: 0;
-    border-radius: 0 0 10px 10px ;
-    padding:1vh ;
-    font-size: 190%;
+    display: flex;
+    gap: 55vw;
+    background-color: rgba(161, 161, 161, 0.114);
+    border-radius: 0 0 10px 10px;
+    justify-content: center;
+    align-items: center;
+}
+.wish-and-actions .owner-actions{
+    display: flex;
+    gap: 3vw;
+    cursor: pointer;
+}
+.wish-and-actions .wish{
+    font-size: 180%;
+font-weight: bold;
 }

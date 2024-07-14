@@ -2,6 +2,7 @@
     padding: 5vh;
     display: flex;
     flex-direction: column;
+    background-color: var(--softpurpil);
 }
 .categories-list-top{
     display: flex;
@@ -12,7 +13,7 @@
     padding: 12px;
     background-color:white;
     /* color: white; */
-    border: solid 1px var(--green) ;
+    border: solid 1px var(--purpil) ;
     border-radius: 3px;
     cursor: pointer;
     
@@ -22,9 +23,13 @@
     min-width: 95%;
     min-height: 50vh;
     margin-top: 5vh;
-    background-color: var(--softgreen); 
+    background-color: white; 
     border-radius: 10px; 
     
+}
+.categories-list-table thead{
+    color: gray;
+    font-size: 120%;
 }
 .categories-list-table thead .description{
     width: 50%;

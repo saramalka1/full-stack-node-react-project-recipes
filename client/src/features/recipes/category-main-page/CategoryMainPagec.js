@@ -1,13 +1,14 @@
-import { NavLink, useParams, useLocation } from 'react-router-dom'
+import { NavLink, useParams, useLocation, useSearchParams } from 'react-router-dom'
 import { useGetAllCategoriesQuery } from '../../categories/categoryApiSlice'
 import { useGetAllRecipesQuery, useGetAllRecipesShowQuery, useGetLatestRecipesByCategoryIdMutation } from '../RecipeApiSlice'
 import useGetFilePath from '../../../hooks/useGetFilePath'
 import "./category-main-page.css"
 import useAuth from '../../../hooks/useAuth'
 import { useEffect, useState } from 'react'
+import Search from '../../../components/common/search/Search'
 
 const CategoryMainPagec = () => {
-    const { isAdmin, username } = useAuth()
+    const { isAdmin, username, _id } = useAuth()
     const { catid } = useParams()
     const location = useLocation(); // ייבוא location
     const { getFilePath } = useGetFilePath()
@@ -15,7 +16,8 @@ const CategoryMainPagec = () => {
     const { data: datar, isError: iserrorr, isLoading: isloadingr } = useGetAllRecipesShowQuery()
     const [getlatestrecipesbyid, { isSuccess: isSuccessl, isLoading: isLoadingl, data: datal, isError: isErrorl, error: errorl }] = useGetLatestRecipesByCategoryIdMutation()
     const [newRecipes, setnewRecipes] = useState([])
-
+    const [searchParams] = useSearchParams()
+    const q = searchParams.get('q')
     useEffect(() => {
         if (catid) {
             getlatestrecipesbyid(catid);
@@ -37,7 +39,7 @@ const CategoryMainPagec = () => {
 
     const category = data.data?.find(c => c._id === catid)
     const recipes = datar.data?.filter(r => r.category.find(c => c._id === catid))
-
+    const filteredRecipes = !q ? [...recipes] : recipes.filter(r => r.name.indexOf(q) > -1)
     return (
         <div className='category-page-container-client'>
             <div className='categoy-title-and-description-and-add-button'>
@@ -50,22 +52,25 @@ const CategoryMainPagec = () => {
                     </div>
                 </div>
                 <div className='add-recipe-button-client'>
+                    <div>
+                        <Search placeholder={'חפשו מתכון'} />
+                    </div>
                     {!username && <div>יש לכם מתכון מוצלח שמתאים לקטגוריה זו? <NavLink to={`/login`} className={'a'}>התחברו למערכת ושתפו אותנו!!</NavLink></div>}
                     {username && <div>יש לכם מתכון מוצלח שמתאים לקטגוריה זו ?
                         <NavLink to={`/client/category/${catid}/add`} className={'a'}> שתפו אותנו !!</NavLink>
                     </div>}
                 </div>
             </div>
-{/* מבחינת התמונות זה מקביל ל-first-page-container-home מהעמוד הראשון */}
+            {/* מבחינת התמונות זה מקביל ל-first-page-container-home מהעמוד הראשון */}
             <div className='all-recipes-container-client'>
-                {/* זה דיו לכל הקטגוריות */}
+                {/* זה דיו לכל המתכונים */}
                 <div className='recipes-sub-container-client'>
                     {recipes.length === 0 && <h1> אין מתכונים בקטגוריה זו </h1>}
-                    {recipes.map(rec => {
+                    {filteredRecipes.map(rec => {
                         return (
                             <div className='single-recipe-client-container'>
                                 <div className='single-recipe-container-client'>
-                                    <NavLink to={`/client/categoty/${catid}/${rec._id}`}>
+                                    <NavLink to={`/client/category/${catid}/${rec._id}`}>
                                         <div className='single-recipe-img-container-client'>
                                             <img src={getFilePath(rec.imgurl)} />
                                         </div>
@@ -76,22 +81,22 @@ const CategoryMainPagec = () => {
                         )
                     })}
                 </div>
-{/* new recipes */}
+                {/* new recipes */}
                 <div className='new-recipes-container-client'>
-                    {recipes.length !=0&&      <div className="new-recipes-title">מתכונים חדשים בקטגוריה :</div>}
+                    {recipes.length != 0 && <div className="new-recipes-title">מתכונים חדשים בקטגוריה :</div>}
                     {/* מקביל ל-new-recipes-container-home בעמוד הראשון */}
                     <div className='new-recipes-sub-container-client'>
                         {newRecipes.map(rec => {
                             return (
                                 <div className='new-single-recipe-container-client'>
                                     <div className='single-recipe-client'>
-                                    <NavLink to={`/client/categoty/${catid}/${rec._id}`}>
-                                        <div className='new-single-recipe-img-container-client'>
-                                            <img src={getFilePath(rec.imgurl)} />
-                                        </div>
-                                        {rec.name}
-                                    </NavLink>
-                                </div>
+                                        <NavLink to={`/client/category/${catid}/${rec._id}`}>
+                                            <div className='new-single-recipe-img-container-client'>
+                                                <img src={getFilePath(rec.imgurl)} />
+                                            </div>
+                                            {rec.name}
+                                        </NavLink>
+                                    </div>
                                 </div>
                             )
                         })}

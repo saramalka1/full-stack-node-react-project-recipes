@@ -52,9 +52,7 @@
   height: 8vh;
   margin-bottom: 5vh;
 }
-.add-recipe-form-self .send-button {
-  margin-right: 27vw;
-}
+
 
 .add-recipe-form-self button:hover {
   background-color: var(--purpil);
@@ -198,5 +196,5 @@
 .send-and-cancel-buttons-container{
   display: flex;
   align-items: center;
-  gap: 10vw;
+  gap: 0;
 }

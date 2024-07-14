@@ -54,7 +54,7 @@ function FirstPage() {
             return (
               <div className="single-recipe-home-container">
                 <div className="single-recipe-home" >
-                  <NavLink to={`/client/categoty/${rec.category}/${rec._id}`} >
+                  <NavLink to={`/client/category/${rec.category}/${rec._id}`} >
                     <div className="single-recipe-img-container-home">
                       <img src={getFilePath(rec.imgurl)} />
                     </div>
