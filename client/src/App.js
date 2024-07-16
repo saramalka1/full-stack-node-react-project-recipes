@@ -62,11 +62,15 @@ function App() {
                   </Route>
                 </Route>
               </Route>
-
-<Route path='pbook'>
-  <Route index element={<PersonalBookList/>}/>
-
-</Route>
+              {/* דפים עבור ספר מתכונים אישי */}
+              <Route element={<PersistLogin />}>
+                <Route element={<RequireAuth allowRoles={['ADMIN', 'USER']} />}>
+                  <Route path='/client/pbook' element={<Outlet />}>
+                    <Route index element={<PersonalBookList />} />
+                    <Route path=':objid' element={<h1>single recipe in pbook </h1>} />
+                  </Route>
+                </Route>
+              </Route>
 
 
               <Route element={<PersistLogin />} >
