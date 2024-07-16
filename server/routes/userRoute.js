@@ -11,9 +11,11 @@ router.get('/:id',getUserById)
 
 router.use(verifyJwt)
 
-router.put('/addrecipetopbook',addRecipeToBook)
-router.put('/deleterecipefrombook',deleteRecipeFromPBook)
-router.put('/updatecomment',updateCommentInPBook)
+router.put('/pbook/addrecipetopbook',addRecipeToBook)
+
+router.put('/pbook/deleterecipefrombook',deleteRecipeFromPBook)
+router.put('/pbook/updatecomment',updateCommentInPBook)
+
 router.use(verifyAdmin)
 
 //admin

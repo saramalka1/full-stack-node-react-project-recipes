@@ -177,7 +177,7 @@ const addRecipeToBook = async (req, res) => {
             data: null
         })
 
-    const allrecipes = [...founduser.personalBook, { recipe: recipeId, Comment: '' }]
+    const allrecipes = [...founduser.personalBook, { recipe: recipeId, comment: '' }]
     founduser.personalBook = allrecipes
     const updated = await founduser.save()
     res.status(201).json({
@@ -208,7 +208,7 @@ const getPBook = async (req, res) => {
             _id:item._id
         }));
 
-        res.status(200).json({
+        res.status(201).json({
             error: false,
             message: "",
             data: personalBook
@@ -256,7 +256,7 @@ const getSingleInPBook = async (req, res) => {
         }
 
         // מחזיר את כל האובייקט שנמצא, כולל את המתכון וההערה
-        return res.status(200).json({
+        return res.status(201).json({
             error: false,
             message: "",
             data: {
