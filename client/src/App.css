@@ -10,6 +10,30 @@
   padding: 0;
   box-sizing: border-box;
 }
+@font-face {
+  font-family: 'Rubik';
+  src: url('../public/fonts/RubikGemstones-Regular.ttf') format('truetype');
+  font-weight: normal;
+font-style: normal;
+}
+@font-face {
+  font-family: 'Puddles';
+  src: url('../public/fonts/Rubik_Puddles/RubikPuddles-Regular.ttf') format('truetype');
+  font-weight: normal;
+font-style: normal;
+}
+@font-face {
+  font-family: 'MarkerHatch';
+  src: url('../public/fonts/RubikMarkerHatch-Regular.ttf') format('truetype');
+  font-weight: normal;
+font-style: normal;
+}
+/* @font-face {
+  font-family: 'Mechon';
+  src: url('../public/fonts/MechonatKtiva-0WLeo.ttf') format('truetype');
+  font-weight: normal;
+font-style: normal;
+} */
 html{
   direction: rtl;
   text-align: right;

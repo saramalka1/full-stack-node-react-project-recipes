@@ -17,6 +17,7 @@
 .recipe-head-container {
     height: 50vh;
     display: grid;
+    gap: 5vw;
     grid-template-columns: 1fr 1fr;
     border: solid 1px var(--purpil);
     border-radius: 10px;
@@ -181,7 +182,7 @@ input[type='checkbox'] {
     width: 98%;
     height: 10vh;
     display: flex;
-    gap: 55vw;
+    gap: 40vw;
     background-color: rgba(161, 161, 161, 0.114);
     border-radius: 0 0 10px 10px;
     justify-content: center;
@@ -191,6 +192,10 @@ input[type='checkbox'] {
     display: flex;
     gap: 3vw;
     cursor: pointer;
+    font-size: 130%;
+}
+.wish-and-actions .delte{
+    font-size: 110%;
 }
 .wish-and-actions .wish{
     font-size: 180%;

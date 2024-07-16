@@ -1,7 +1,7 @@
 .navigation-main-container {
     display: flex;
     flex-direction: row;
-    gap: 9vw;
+    gap: 7vw;
     justify-content: center;
     justify-items: center;
     height: 4vh;
@@ -38,7 +38,7 @@
     background-color: black;
     padding-bottom: 2vh;
     color: white;
-    min-width: 7vw;
+    min-width: 10vw;
     justify-items: center;
     align-items: center;
     border-bottom-left-radius: 10%;

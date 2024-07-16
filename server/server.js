@@ -22,7 +22,6 @@ app.use('/api/users',require('./routes/userRoute'))
 app.use('/api/recipes',require('./routes/recipeRoute'))
 app.use('/api/category',require('./routes/categoryRoute'))
 
-
 app.get("/",(req,res)=>{
     res.send("home page")
 })

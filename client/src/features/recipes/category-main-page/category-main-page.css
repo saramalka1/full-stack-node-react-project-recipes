@@ -22,16 +22,21 @@
     display: flex;
     gap: 4vh;
     flex-direction: column;
-    height: 25vh;
+    height: 30vh;
     width: 80vw;
     background-color: white;
     align-items: center;
+    text-align: center;
     border-radius: 10px;
     border:solid 1px var(--purpil);
 }
 .categoy-title-and-description .category-title{
-
-font-size: 190%;
+font-family: 'Rubik';
+font-size: 250%;
+/* color: var(--purpil); */
+}
+.categoy-title-and-description .category-description{
+    font-size: 120%;
 }
 .add-recipe-button-client{
     display: flex;

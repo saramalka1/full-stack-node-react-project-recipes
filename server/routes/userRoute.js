@@ -3,11 +3,17 @@ const express=require('express')
 const router=express.Router()
 const verifyJwt=require("../middlware/verifyJwt")
 const verifyAdmin=require("../middlware/verifyAdmin")
-const {getAllUsers,getUserById,createNewUser,updateUser,deleteUser}=require('../controllers/userController')
+const {getAllUsers,getUserById,createNewUser,updateUser,deleteUser,addRecipeToBook,getPBook,deleteRecipeFromPBook,updateCommentInPBook,getSingleInPBook}=require('../controllers/userController')
 
+router.get('/pbook',verifyJwt,getPBook)
+router.get('/pbook/:id',verifyJwt,getSingleInPBook)
 router.get('/:id',getUserById)
 
 router.use(verifyJwt)
+
+router.put('/addrecipetopbook',addRecipeToBook)
+router.put('/deleterecipefrombook',deleteRecipeFromPBook)
+router.put('/updatecomment',updateCommentInPBook)
 router.use(verifyAdmin)
 
 //admin

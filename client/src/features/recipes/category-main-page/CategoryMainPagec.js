@@ -55,7 +55,7 @@ const CategoryMainPagec = () => {
                     <div>
                         <Search placeholder={'חפשו מתכון'} />
                     </div>
-                    {!username && <div>יש לכם מתכון מוצלח שמתאים לקטגוריה זו? <NavLink to={`/login`} className={'a'}>התחברו למערכת ושתפו אותנו!!</NavLink></div>}
+                    {!username && <div>יש לכם מתכון מוצלח שמתאים לקטגוריה זו? <NavLink to={`/login`} state={{fromCategoryPage:true,catid}} className={'a'}>התחברו למערכת ושתפו אותנו!!</NavLink></div>}
                     {username && <div>יש לכם מתכון מוצלח שמתאים לקטגוריה זו ?
                         <NavLink to={`/client/category/${catid}/add`} className={'a'}> שתפו אותנו !!</NavLink>
                     </div>}

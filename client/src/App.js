@@ -22,6 +22,7 @@ import SingleRecipec from './features/recipes/single-recipec/SingleRecipec';
 import CheckLoginNotRequired from './features/auth/CheckLoginNotRequired';
 import RecipeLayoutc from './features/recipes/recipeLayoutc/RecipeLayoutc.js';
 import UpdateRecipec from './features/recipes/update-recipec/UpdateRecipec.js';
+import PersonalBookList from './features/personalBook/personalBookList/PersonalBookList.js';
 
 function App() {
 
@@ -36,10 +37,13 @@ function App() {
           <Route element={<CheckLoginNotRequired />} >
             <Route path='/' element={<MainLayout />}>
 
+              <Route index element={<FirstPage />} />
+
               {/* כניסה והרשמה */}
               <Route path='/login' element={<LoginPage />} />
               <Route path='/login/register' element={<RegisterPage />} />
-              <Route index element={<FirstPage />} />
+
+
               {/* מתכונים למשתמש */}
               {/* מפנה לקטגוריה מסוימת */}
               <Route path='/client/category/:catid' element={<CategoryLayoutc />}>
@@ -52,9 +56,17 @@ function App() {
               </Route>
               {/* מפנה למתכון מסוים */}
               <Route path='/client/category/:catid/:recid' element={<RecipeLayoutc />}>
-<Route path='update' element={<UpdateRecipec/>}/>
+                <Route element={<PersistLogin />}>
+                  <Route element={<RequireAuth allowRoles={['USER', 'ADMIN']} />}>
+                    <Route path='update' element={<UpdateRecipec />} />
+                  </Route>
+                </Route>
               </Route>
 
+<Route path='pbook'>
+  <Route index element={<PersonalBookList/>}/>
+
+</Route>
 
 
               <Route element={<PersistLogin />} >

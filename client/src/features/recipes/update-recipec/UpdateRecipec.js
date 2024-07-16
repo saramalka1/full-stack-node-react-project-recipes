@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import { useNavigate, useParams } from 'react-router-dom';
 import './update-recipec.css'
-import { useAddRecipeMutation, useGetAllRecipesQuery, useUpdateRecipeUserMutation } from '../../recipes/RecipeApiSlice';
+import { useAddRecipeMutation, useGetAllRecipesQuery, useGetAllRecipesShowQuery, useUpdateRecipeUserMutation } from '../../recipes/RecipeApiSlice';
 
 const UpdateRecipec = () => {
   const { catid, recid } = useParams();
-  const { data: datar, isError: isErrorr, error: errorr, isLoading: isLoadingr, isSuccess: isSuccessr } = useGetAllRecipesQuery()
+  const { data: datar, isError: isErrorr, error: errorr, isLoading: isLoadingr, isSuccess: isSuccessr } = useGetAllRecipesShowQuery()
   const { isAdmin, isUser, username } = useAuth();
   const [updateRecipe, { isSuccess, isError, error }] = useUpdateRecipeUserMutation();
   const [recipe, setrecipe] = useState(null)

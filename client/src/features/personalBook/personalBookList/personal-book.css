@@ -1,0 +1,43 @@
+.pbook-main-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+   min-height: 100vh;
+    background-color: var(--softpurpil);
+    align-items: center;
+    justify-content: center;
+    
+}
+.pbook-main-sub-container{
+    width: 90vw;
+    min-height: 90vh;
+    background-color:white;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 8vh;
+    align-items: center;
+    border-radius: 5px;
+}
+.pbook-main-head-container{
+    width:100% ;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px var(--purpil);
+    border-radius: 5px;
+}
+.pbook-main-head-title{
+    font-family: 'Rubik';
+    font-size: 250%;
+}
+.pbook-main-head-sub-title{
+    font-size: 130%;
+}
+.pbook-main-all-recipes-container{
+    width: 100%;
+    
+}

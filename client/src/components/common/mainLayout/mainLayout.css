@@ -1,3 +1,10 @@
+
+.logo{
+    font-family: 'Rubik', sans-serif;
+    font-size: 300%;
+  font-weight: bold;
+  color: var(--purpil);
+}
 .main-layout-container{
     display: flex;
     flex-direction: column;
@@ -25,7 +32,7 @@
     /* background-color: black; */
     /* text-align: center; */
     color: var(--green);
-    margin-top: 5vh;
-    padding: 2vh;
+    margin-top: 2vh;
+    padding: 1vh;
 
 }

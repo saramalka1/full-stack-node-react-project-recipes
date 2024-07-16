@@ -8,7 +8,7 @@ const MainLayout = () => {
     <div className="main-layout-container">
       <div className="head">
         <div className="logo">
-          logo
+          ניחוחות
         </div>
         <div className="navigation">
           <Navigation />

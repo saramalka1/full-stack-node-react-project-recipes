@@ -10,6 +10,10 @@ import { RxStarFilled } from "react-icons/rx";
 import { CgAdidas } from "react-icons/cg";
 import useAuth from '../../../hooks/useAuth'
 import { Modal } from 'antd'
+import { FiEdit } from "react-icons/fi";
+import { MdOutlineDelete } from "react-icons/md";
+
+
 
 const SingleRecipec = () => {
     const { isAdmin, _id } = useAuth()
@@ -152,12 +156,14 @@ const navigate=useNavigate()
                             ))}
                         </div>
                         <div className='wish-and-actions'>
-                            {(isAdmin || _id === recipe.writeruser) &&
+                            {((isAdmin) || (_id === recipe.writeruser._id)) &&
                                 <div className='owner-actions'>
-                                    <div><NavLink to={`/client/category/${catid}/${recid}/update`}>עריכה</NavLink></div>
-                                    <div onClick={()=>clickdelete(recipe._id)}>מחיקה</div>
+                                    <div>  זה המתכון שלך! אתה יכול לערוך אותו-</div>
+                                    <div><NavLink to={`/client/category/${catid}/${recid}/update`}><FiEdit/></NavLink></div>
+                                    <div className='delte'  onClick={()=>clickdelete(recipe._id)}><MdOutlineDelete/></div>
                                 </div>
                             }
+                            
                             <div className='wish'>
                                 בתיאבון !
                             </div>
