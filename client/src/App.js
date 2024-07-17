@@ -18,7 +18,6 @@ import AddRecipe from './features/categories/add-recipe/AddRecipe';
 import AddRecipec from './features/recipes/add-recipe/AddRecipec';
 import CategoryLayoutc from './features/recipes/categoryLayoutc/CategoryLayoutc';
 import UpdateRecipe from './features/categories/update-recipe/UpdateRecipe'
-import SingleRecipec from './features/recipes/single-recipec/SingleRecipec';
 import CheckLoginNotRequired from './features/auth/CheckLoginNotRequired';
 import RecipeLayoutc from './features/recipes/recipeLayoutc/RecipeLayoutc.js';
 import UpdateRecipec from './features/recipes/update-recipec/UpdateRecipec.js';
