@@ -87,7 +87,7 @@
   background-color: var(--purpil);
 }
 
-.image-upload {
+/* .image-upload {
   position: relative;
 }
 
@@ -131,7 +131,7 @@
 
 .upload-text input {
   display: none;
-}
+} */
 
 .ingredients-and-instructions-container {
   display: flex;

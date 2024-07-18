@@ -9,8 +9,8 @@ const AddRecipe = () => {
   const { catid } = useParams();
   const { isAdmin, isUser, username } = useAuth();
   const [addrecipe, { isSuccess, isError, error }] = useAddRecipeMutation();
-  const [getCategoryById,{isSuccess:isSuccesscategory,data:datacategory,isLoading:isLoadingcategory,isError:isErrorcategory}]=useGetCategoryByIdMutation()
-  const [categoryname,setcategoryname]=useState('')
+  const [getCategoryById, { isSuccess: isSuccesscategory, data: datacategory, isLoading: isLoadingcategory, isError: isErrorcategory }] = useGetCategoryByIdMutation()
+  const [categoryname, setcategoryname] = useState('')
   const [ingredients, setIngredients] = useState(['']);
   const [instructions, setinstructions] = useState([''])
   const navigate = useNavigate()
@@ -19,18 +19,18 @@ const AddRecipe = () => {
       navigate('/client/category/' + catid)
     }
   }, [isSuccess])
-  useEffect(()=>{
-if(catid)
-  getCategoryById(catid)
-  },[catid])
+  useEffect(() => {
+    if (catid)
+      getCategoryById(catid)
+  }, [catid])
 
-  useEffect(()=>{
-    if(isSuccesscategory)
+  useEffect(() => {
+    if (isSuccesscategory)
       setcategoryname(datacategory.data.name)
-  },[isSuccesscategory])
+  }, [isSuccesscategory])
 
-  if(isLoadingcategory) return
-  if(isErrorcategory) return <h1>משהו קרה בצד שלנו...</h1>
+  if (isLoadingcategory) return
+  if (isErrorcategory) return <h1>משהו קרה בצד שלנו...</h1>
   const handle_submit = (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
@@ -84,72 +84,71 @@ if(catid)
           <input name='name' type='text' placeholder='שם המתכון' />
           <input name='description' type='text' placeholder='תיאור' />
           <input name='amount' type='number' placeholder='מספר מנות' />
-          <label className='upload-text'>
-            <input name='imgurl' type='file' />
-            בחר תמונה
+          <label>            בחר תמונה
           </label>
+          <input name='imgurl' type='file' />
           <div className='ingredients-and-instructions-container'>
             {/* המרכיבים */}
             <div className='ingredients-container'>
-            {ingredients.map((ingredient, index) => (
-              <div key={index} className='ingredient-input'>
-                <input
-                  type='text'
-                  placeholder='שם המרכיב'
-                  value={ingredient}
-                  onChange={(e) => handleIngredientChange(index, e.target.value)}
-                />
-                <button type='button' onClick={() => removeIngredient(index)}>x</button>
-              </div>
-            ))}
-            <button type='button' onClick={addIngredient} className='add-ingredient-button'>הוסף מרכיבים</button>
-          </div>
-          {/* ההוראות הכנה */}
-          <div className='instructions-container'>
-            {
-              instructions.map((instruction, index) => (
-                <div key={index} className='instruction-input'>
+              {ingredients.map((ingredient, index) => (
+                <div key={index} className='ingredient-input'>
                   <input
                     type='text'
-                    placeholder='הוראת הכנה'
-                    value={instruction}
-                    onChange={(e) => handleInstructionChange(index, e.target.value)}
+                    placeholder='שם המרכיב'
+                    value={ingredient}
+                    onChange={(e) => handleIngredientChange(index, e.target.value)}
                   />
-                  <button type='button' onClick={() => removeInstruction(index)}>x</button>
+                  <button type='button' onClick={() => removeIngredient(index)}>x</button>
                 </div>
-              ))
+              ))}
+              <button type='button' onClick={addIngredient} className='add-ingredient-button'>הוסף מרכיבים</button>
+            </div>
+            {/* ההוראות הכנה */}
+            <div className='instructions-container'>
+              {
+                instructions.map((instruction, index) => (
+                  <div key={index} className='instruction-input'>
+                    <input
+                      type='text'
+                      placeholder='הוראת הכנה'
+                      value={instruction}
+                      onChange={(e) => handleInstructionChange(index, e.target.value)}
+                    />
+                    <button type='button' onClick={() => removeInstruction(index)}>x</button>
+                  </div>
+                ))
 
-            }
+              }
 
-            <button type='button' onClick={addInstruction} className='add-instruction-button'>הוסף הוראות</button>
+              <button type='button' onClick={addInstruction} className='add-instruction-button'>הוסף הוראות</button>
+            </div>
           </div>
-      </div>
 
-      <input name='category' type='hidden' value={catid} />
+          <input name='category' type='hidden' value={catid} />
 
-      <select name='type'>
-        <option value={'PARVE'}>פרווה</option>
-        <option value={'DAIRY'}>חלבי</option>
-        <option value={'MEAT'}>בשרי</option>
-      </select>
+          <select name='type'>
+            <option value={'PARVE'}>פרווה</option>
+            <option value={'DAIRY'}>חלבי</option>
+            <option value={'MEAT'}>בשרי</option>
+          </select>
 
-      <select name='level'>
-        <option value={'MEDIUM'}>רמת קושי</option>
-        <option value={'EASY'}>קל</option>
-        <option value={'MEDIUM'}>בינוני</option>
-        <option value={'HARD'}>קשה</option>
-      </select>
+          <select name='level'>
+            <option value={'MEDIUM'}>רמת קושי</option>
+            <option value={'EASY'}>קל</option>
+            <option value={'MEDIUM'}>בינוני</option>
+            <option value={'HARD'}>קשה</option>
+          </select>
 
-      <input name='preparationtime' type='text' placeholder='זמן הכנה' />
-      <div className='send-and-cancel-buttons-container'>
-      <button type='submit' className='send-button'>הוסף</button>
-      <button type='button' className='send-button' onClick={()=>navigate('/client/category/'+catid)}>ביטול</button>
-      </div>
-      { isError && error.data.message}
-    </form>
-    
+          <input name='preparationtime' type='text' placeholder='זמן הכנה' />
+          <div className='send-and-cancel-buttons-container'>
+            <button type='submit' className='send-button'>הוסף</button>
+            <button type='button' className='send-button' onClick={() => navigate('/client/category/' + catid)}>ביטול</button>
+          </div>
+          {isError && error.data.message}
+        </form>
+
       </div >
-  
+
     </div >
   )
 }

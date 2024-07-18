@@ -88,10 +88,9 @@ const AddRecipe = () => {
           <input name='name' type='text' placeholder='שם המתכון' />
           <input name='description' type='text' placeholder='תיאור' />
           <input name='amount' type='number' placeholder='מספר מנות' />
-          <label className='upload-text'>
-            <input name='imgurl' type='file' />
-            בחר תמונה
+          <label>            בחר תמונה
           </label>
+          <input name='imgurl' type='file' />
           <div className='ingredients-and-instructions-container'>
             {/* המרכיבים */}
             <div className='ingredients-container'>
