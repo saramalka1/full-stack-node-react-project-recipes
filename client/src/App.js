@@ -22,6 +22,7 @@ import CheckLoginNotRequired from './features/auth/CheckLoginNotRequired';
 import RecipeLayoutc from './features/recipes/recipeLayoutc/RecipeLayoutc.js';
 import UpdateRecipec from './features/recipes/update-recipec/UpdateRecipec.js';
 import PersonalBookList from './features/personalBook/personalBookList/PersonalBookList.js';
+import PersonalPBookItem from './features/personalBook/personalPBookItem/PersonalPBookItem.js';
 
 function App() {
 
@@ -67,7 +68,7 @@ function App() {
                 <Route index element={<PersonalBookList />} />
                 <Route element={<PersistLogin />} >
                   <Route element={<RequireAuth allowRoles={['USER', 'ADMIN']} />}>
-                    <Route path=':objid' element={<h1>single recipe in pbook </h1>} />
+                    <Route path=':objid' element={<PersonalPBookItem/>} />
                   </Route>
                 </Route>
               </Route>

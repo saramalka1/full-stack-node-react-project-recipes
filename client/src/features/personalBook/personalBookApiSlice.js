@@ -10,7 +10,7 @@ const personalBookApiSlice = apiSlice.injectEndpoints({
         }),
         getPBookItem: build.mutation({
             query: (id) => ({
-                url: '/api/users/pbook' + id,
+                url: '/api/users/pbook/' + id,
                 method: 'GET'
             }),
             providesTags: ['pbookItem']

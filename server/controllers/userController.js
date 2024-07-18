@@ -202,7 +202,7 @@ const getPBook = async (req, res) => {
         }
 
         // יצירת מערך חדש שמכיל את המתכון ואת ההערה באותו אובייקט
-        const personalBook = user.personalBook.map(item => ({
+        const personalBook = user.personalBook?.map(item => ({
             recipe: item.recipe,
             comment: item.comment,
             _id:item._id
@@ -229,7 +229,7 @@ const getPBook = async (req, res) => {
 const getSingleInPBook = async (req, res) => {
     try {
         // מוצא את המשתמש ומביא את המידע על המתכונים בספר האישי שלו
-        const user = await User.findOne({ _id: req.user }).populate('personalBook.recipe').lean();
+        const user = await User.findOne({ _id: req.user }).populate({path:'personalBook.recipe',populate:'writeruser'}).lean();
 
         // אם המשתמש לא נמצא, מחזיר שגיאה
         if (!user) {
