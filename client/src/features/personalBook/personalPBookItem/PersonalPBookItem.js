@@ -1,35 +1,35 @@
 import './personal-pbook-item.css'
-
 import { useParams } from 'react-router-dom'
 import useGetFilePath from '../../../hooks/useGetFilePath'
-import { FaClock } from "react-icons/fa"; import { FaConciergeBell } from "react-icons/fa";
+import { FaClock, FaConciergeBell } from "react-icons/fa"; 
 import { CgAdidas } from "react-icons/cg";
 import useAuth from '../../../hooks/useAuth'
-import { FiEdit } from "react-icons/fi";
-import { MdOutlineDelete } from "react-icons/md";
-import { useGetPBookItemMutation } from '../../personalBook/personalBookApiSlice'
+import { useGetPBookItemMutation, useUpdateCommentMutation } from '../../personalBook/personalBookApiSlice'
 import { useEffect, useState } from 'react';
 import { RxStarFilled } from 'react-icons/rx';
-
 
 const PersonalPBookItem = () => {
     const { isAdmin, _id } = useAuth()
     const { objid } = useParams()
 
     const [getPBookItem, { data, isSuccess, isLoading, isError, error }] = useGetPBookItemMutation()
-    const [recipeobj, setrecipeobj] = useState()
+    const [updateComment, { isError: isErroru, error: erroru }] = useUpdateCommentMutation()
+    const [recipeobj, setRecipeobj] = useState()
     const [doneIngredients, setDoneIngredients] = useState({})
     const [doneInstructions, setDoneInstructions] = useState({})
+    const [comment, setComment] = useState('')
+
     const { getFilePath } = useGetFilePath()
 
     useEffect(() => {
-        if (objid)
-            getPBookItem(objid)
+        if (objid) getPBookItem(objid)
     }, [objid])
 
     useEffect(() => {
-        if (isSuccess && data.data)
-            setrecipeobj(data.data)
+        if (isSuccess && data.data) {
+            setRecipeobj(data.data)
+            setComment(data.data.comment)
+        }
     }, [isSuccess, data])
 
     const handleIngredientClick = (index) => {
@@ -46,17 +46,18 @@ const PersonalPBookItem = () => {
         }))
     }
 
-    if (isError)
-        return <h1>משהו קרה בצד שלנו {JSON.stringify(error.message)}</h1>
-    if (isLoading) return
-    if (!recipeobj)
-        return
+    const updateCommentClick = () => {
+        updateComment({ objId:objid, comment })
+    }
+
+    if (isError || isErroru) return <h1>משהו קרה בצד שלנו...</h1>
+    if (isLoading) return null
+    if (!recipeobj) return null
 
     return (
         <div className='pb'>
             <div className='pbook-item'>
                 <div className='single-recipec-page-container'>
-
                     <div className='single-recipec-page-sub-container'>
                         <div className='recipe-head-container'>
                             <div className='recipe-head-info'>
@@ -70,23 +71,18 @@ const PersonalPBookItem = () => {
                                 </div>
                             </div>
                             <div className='recipe-head-img-container'>
-                                <img src={getFilePath(recipeobj.recipe.imgurl)} />
+                                <img src={getFilePath(recipeobj.recipe.imgurl)} alt='Recipe' />
                             </div>
                         </div>
                         <div className='recipe-icons-ingredientd-and-instructions-container'>
-
                             <div className='recipe-time-count-type-level-container'>
                                 <div className='time-container'>
                                     <FaClock className='icon' />
-                                    <div>
-                                        {recipeobj.recipe.preparationtime}
-                                    </div>
+                                    <div>{recipeobj.recipe.preparationtime}</div>
                                 </div>
                                 <div className='count-container'>
                                     <FaConciergeBell className='icon' />
-                                    <div>
-                                        {`${recipeobj.recipe.amount} מנות`}
-                                    </div>
+                                    <div>{`${recipeobj.recipe.amount} מנות`}</div>
                                 </div>
                                 <div className='type-container' id={recipeobj.recipe.type}>
                                     <RxStarFilled className='icon' />
@@ -100,9 +96,6 @@ const PersonalPBookItem = () => {
                                     {recipeobj.recipe.level === 'EASY' && 'קל'}
                                     {recipeobj.recipe.level === 'MEDIUM' && 'בינוני'}
                                 </div>
-                                {/* אם יש משתמש ניתן אפשרות של הוספה לספר המתכונים */}
-
-
                             </div>
                             <div className='recipe-ingredients-and-instructions'>
                                 <div className='recipe-ingredients-container'>
@@ -132,18 +125,24 @@ const PersonalPBookItem = () => {
                                         </div>
                                     ))}
                                 </div>
-                                <div className='wish-and-actions'>
-
-
-                                    <div className='wish'>
-                                        בתיאבון !
-                                    </div>
+                            </div>
+                            <div className='comment-container'>
+                                <div className='comment-title'>ההערות שלי:</div>
+                                <textarea
+                                    className='comment-textarea'
+                                    value={comment}
+                                    onChange={(e) => setComment(e.target.value)}
+                                />
+                                <button className='save-button' onClick={updateCommentClick}>שמור שינויים</button>
+                            </div>
+                            <div className='wish-and-actions'>
+                                <div className='wish'>
+                                    בתיאבון !
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     )

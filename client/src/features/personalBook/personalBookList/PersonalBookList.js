@@ -1,13 +1,18 @@
 
 import { NavLink } from 'react-router-dom'
 import useAuth from '../../../hooks/useAuth'
-import { useGetPBookQuery } from '../personalBookApiSlice'
+import { useDeletefromPBookMutation, useGetPBookQuery } from '../personalBookApiSlice'
 import './personal-book.css'
 import useGetFilePath from '../../../hooks/useGetFilePath'
 const PersonalBookList = () => {
     const { username } = useAuth()
     const { data, isLoading, isError, error } = useGetPBookQuery()
+    const [deleteFromBook,{isError:isErrord,isSuccess:isSuccessd,error:errord}]=useDeletefromPBookMutation()
     const { getFilePath } = useGetFilePath()
+
+    const deleteClick=(objId)=>{
+        deleteFromBook({objId:objId})
+    }
     if (isLoading) return
     //אם יש משתמש רשום,אז תבדוק אם יש שגיאה כלשהיא
     //אם אין עכשיו משתמש רשום אז ודאי יהיה שגיאה 
@@ -20,6 +25,7 @@ const PersonalBookList = () => {
     //-וכך הוא יכול להכנס לדף אפילו שהוא לא רשום
     // אבל לא תהיה בעיה במעבר על המתכונים כי אם אין דאטה הוא לא יעבור
     if (username && isError) return <h1>{error.data.message}</h1>
+    if(isErrord) return <h1>משהו קרה בצד שלנו...</h1>
     return (
         <div className='pbook-main-container'>
             <div className='pbook-main-sub-container'>
@@ -44,6 +50,10 @@ const PersonalBookList = () => {
                                         </div>
                                         {pb.recipe.name}
                                     </NavLink>
+                                    <div className="delete-icon" onClick={() => deleteClick(pb._id)}>
+                                        <span className="delete-icon-text">×</span>
+                                        <span className="tooltip-text">מחיקה</span>
+                                    </div>
                                 </div>
 
                             </div>)

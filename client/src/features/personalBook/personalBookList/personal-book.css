@@ -55,7 +55,7 @@
     border-radius: 10px;
     background-color: white;
     border: solid 1px var(--purpil); 
-
+    position: relative;
 }
 .single-obj-in-pbook-main-sub-container{
     display: flex;
@@ -82,6 +82,48 @@
     transition: transform 0.2s;
 }
 .single-recipe-in-pbook-img-container:hover img{
-    transform: scale(1.1);
+    /* transform: scale(1.03); */
 }
 
+
+
+.delete-icon {
+    position: absolute;
+    top: 10%;
+    right: 3vh;
+    background-color: rgba(128, 128, 128, 0.256);
+    color: #fff;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: translateY(-50%); /* ממקם את האייקון באמצע */
+}
+
+.delete-icon:hover {
+    background-color: rgba(128, 128, 128, 0.338);
+}
+
+.delete-icon-text {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.delete-icon:hover .tooltip-text {
+    display: inline;
+}
+
+.tooltip-text {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 3em;
+    background-color: white;
+    color: var(--purpil);
+    padding: 5px;
+    border-radius: 5px;
+    transform: translateY(-50%);
+}
