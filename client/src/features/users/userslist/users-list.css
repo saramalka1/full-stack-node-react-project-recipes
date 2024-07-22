@@ -1,0 +1,129 @@
+
+.users-list {
+  min-width: 80vw;
+  padding-top: 6vh;
+  padding-right: 10vw;
+  background-color: var(--softpurpil);
+  padding-bottom: 5vh;
+}
+
+.users-list-top {
+  display: flex;
+  align-items: center;
+  gap: 56.5vw;
+}
+
+.users-list-buttons{
+  display: flex;
+  gap: 10px;
+}
+
+.users-list-add-button{
+  padding: 12px;
+  background-color:white;
+  /* color: white; */
+  border: solid 1px var(--purpil) ;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.users-list-table{
+  text-align: center;
+  min-width: 95%;
+  min-height: 50vh;
+  margin-top: 5vh;
+  background-color: white; 
+  border-radius: 10px; 
+}
+
+.users-list-table td{
+  padding: 10px;
+}
+
+.users-list-user{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.users-list-button{
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--text);
+  border: none;
+  cursor: pointer;
+}
+
+.users-list-view{
+  background-color:rgba(172, 172, 172, 0.076);
+}
+
+.users-list-delete{
+  color: black;
+  background-color:rgba(172, 172, 172, 0.076);
+}
+
+.users-list thead {
+ 
+  color: gray;
+  font-size: 120%;
+}
+.users-list-delete{
+  width: 30%;
+}
+
+
+/**/
+.custom-modal .ant-modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-modal .custom-ok-button {
+  /* background-color: #ff69b4; וורוד */
+  border-color: var(--purpil);
+  color: black;
+  /* color: white; */
+  width: calc(50% - 8px); /* 8px המרווח בין הכפתורים */
+}
+
+.custom-modal .custom-cancel-button {
+  /* background-color: #32cd32; ירוק */
+  border-color: var(--purpil);
+  color: black;
+  width: calc(50% - 8px); /* 8px המרווח בין הכפתורים */
+}
+
+.custom-modal .ant-btn:first-child {
+  margin-right: 8px; /* 8px המרווח בין הכפתורים */
+}
+
+/**/
+.custom-modal .ant-modal-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-modal .custom-ok-button {
+  /* background-color: #ff69b4; וורוד */
+  border-color: var(--purpil);
+  color: black;
+  /* color: white; */
+  width: calc(50% - 8px); /* 8px המרווח בין הכפתורים */
+}
+
+.custom-modal .custom-cancel-button {
+  /* background-color: #32cd32; ירוק */
+  border-color: var(--purpil);
+  color: black;
+  width: calc(50% - 8px); /* 8px המרווח בין הכפתורים */
+}
+
+.custom-modal .ant-btn:first-child {
+  margin-right: 8px; /* 8px המרווח בין הכפתורים */
+}
+
+
+
+
+
+

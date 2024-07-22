@@ -1,0 +1,135 @@
+.navigation-main-container {
+    display: flex;
+    flex-direction: row;
+    gap: 7vw;
+    justify-content: center;
+    justify-items: center;
+    height: 4vh;
+}
+
+.navigation-main-container .active {
+    color: var(--purpil);
+
+}
+
+.navigation-recipes-container {
+    position: relative;
+}
+
+.navigation-adminActions-container {
+    position: relative;
+}
+
+.navigation-recipes {
+    display: none;
+}
+
+.navigation-adminActions {
+    display: none;
+}
+
+.navigation-recipes-container:hover .navigation-recipes {
+    display: flex;
+    gap: 1.5vh;
+    flex-direction: column;
+    position: absolute;
+    padding-top: 6vh;
+    min-height: 15vh;
+    background-color: black;
+    padding-bottom: 2vh;
+    color: white;
+    min-width: 10vw;
+    justify-items: center;
+    align-items: center;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+}
+
+.navigation-adminActions-container:hover .navigation-adminActions {
+    display: flex;
+    gap: 1.5vh;
+    flex-direction: column;
+    position: absolute;
+    padding-top: 6vh;
+    height: 15vh;
+    background-color: black;
+    color: white;
+    width: 7vw;
+    justify-items: center;
+    align-items: center;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+
+}
+.single-link-to-action-navigation:hover{
+    color: var(--purpil);
+}
+.single-link-to-category-navigation:hover{
+    color: var(--purpil);
+}
+
+.login {
+    display: flex;
+    /* flex-direction: row; */
+    gap: 0.5vw;
+}
+
+.login-icon {
+    color: rgb(173, 174, 175);
+}
+
+.user-in-container {
+
+    border: solid var(--softpurpil) 2px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+   padding: 10px;
+    margin-right: 12vw;
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+    color: var(--purpil);
+}
+
+.logout-button {
+    width: 2vw;
+    background-color: inherit;
+    color: white;
+    /* font-size: medium; */
+    cursor: pointer;
+}
+.icon-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .exit-icon {
+    color: var(--purpil);
+    margin: 2vh;
+    font-size: 48px; /* הגדלת גודל האייקון */
+    font-weight: bold; /* הפיכת האייקון לעבה יותר */
+  }
+  
+  .tooltip {
+    visibility: hidden;
+    background-color: #fff;
+    color:var(--purpil);
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%; /* מיקום הטקסט בצד ימין של האייקון */
+    transform: translateY(-50%);
+    white-space: nowrap; /* למנוע שבירת שורה */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .icon-container:hover .tooltip {
+    visibility: visible;
+  }

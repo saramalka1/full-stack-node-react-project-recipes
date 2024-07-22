@@ -1,0 +1,61 @@
+
+  
+ 
+ .single-user-form-container{
+  min-height: 150vh;
+    width: 98.9vw;
+    padding:5vw ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--softpurpil);
+ }
+ /* זה הפורם   */
+ .single-user-form{
+  border: solid 1px var(--purpil);
+  border-radius: 10px;
+      background-color: white;
+      width: 60vw;
+      height: 150vh;
+      padding: 3vw;
+      display: flex;
+      gap: 5vh;
+      flex-direction: column;
+      align-items: center;
+ }
+ .single-user-form label{
+  
+  color: var(--purpil);
+ }
+ .single-user-form  input,button,select{
+  width: 30vw;
+  height: 3rem;
+  font-size: 1.1rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  /* border-bottom:solid var(--purpil) 5px ; */
+ }
+ .single-user-form input:hover,select:hover{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom:solid var(--purpil) 3px ;
+ }
+ .single-user-form button{
+  border-bottom: none;
+  background-color: var(--softpurpil);
+
+ }
+ .single-user-form button:hover{
+  background-color: var(--purpil);
+color: white;
+ }
+ .single-user-form-container input,select{
+  border: none; 
+    border-bottom: 1px solid #ccc; 
+    outline: none; 
+ }
+ .single-user-form-container .err{
+  color: rgb(22, 22, 22);
+ }

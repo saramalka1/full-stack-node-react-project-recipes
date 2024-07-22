@@ -1,0 +1,38 @@
+
+.logo{
+    font-family: 'Rubik', sans-serif;
+    font-size: 300%;
+  font-weight: bold;
+  color: var(--purpil);
+}
+.main-layout-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.head{
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    color: white;
+    gap: 10vw;
+    height: 10vh;
+    width: 100%;
+    border-bottom: solid rgb(171, 170, 170) 0.7vh;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+}
+.footer{
+    display: flex;
+    align-items: center;
+    /* background-color: black; */
+    /* text-align: center; */
+    color: var(--green);
+    margin-top: 2vh;
+    padding: 1vh;
+
+}

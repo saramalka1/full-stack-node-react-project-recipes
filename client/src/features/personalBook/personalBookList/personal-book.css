@@ -1,0 +1,129 @@
+.pbook-main-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+   min-height: 100vh;
+    background-color: var(--softpurpil);
+    align-items: center;
+    justify-content: center;
+    
+}
+.pbook-main-sub-container{
+    width: 90vw;
+    min-height: 90vh;
+    background-color:white;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 8vh;
+    align-items: center;
+    border-radius: 5px;
+}
+.pbook-main-head-container{
+    width:100% ;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px var(--purpil);
+    border-radius: 5px;
+}
+.pbook-main-head-title{
+    font-family: 'Rubik';
+    font-size: 250%;
+}
+.pbook-main-head-sub-title{
+    font-size: 130%;
+}
+.pbook-main-all-recipes-container{
+    width: 100%;
+    
+}
+.pbook-main-all-recipes-container{
+    margin-top: 5vh;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2vw;
+    align-content: center;
+}
+.single-obj-in-pbook-main-container{
+    min-width: 25.5vw;
+    height: auto;
+    border-radius: 10px;
+    background-color: white;
+    border: solid 1px var(--purpil); 
+    position: relative;
+}
+.single-obj-in-pbook-main-sub-container{
+    display: flex;
+    flex-direction: column;
+   width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+}
+.single-recipe-in-pbook-img-container{
+    width: 100%;
+    aspect-ratio: 16 / 12; /* Ensures a wide aspect ratio */
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: filter 0.2s, transform 0.2s; /* עיצוב המעבר */
+
+}
+.single-recipe-in-pbook-img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+.single-recipe-in-pbook-img-container:hover img{
+    /* transform: scale(1.03); */
+}
+
+
+
+.delete-icon {
+    position: absolute;
+    top: 10%;
+    right: 3vh;
+    background-color: rgba(128, 128, 128, 0.256);
+    color: #fff;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: translateY(-50%); /* ממקם את האייקון באמצע */
+}
+
+.delete-icon:hover {
+    background-color: rgba(128, 128, 128, 0.338);
+}
+
+.delete-icon-text {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.delete-icon:hover .tooltip-text {
+    display: inline;
+}
+
+.tooltip-text {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 3em;
+    background-color: white;
+    color: var(--purpil);
+    padding: 5px;
+    border-radius: 5px;
+    transform: translateY(-50%);
+}

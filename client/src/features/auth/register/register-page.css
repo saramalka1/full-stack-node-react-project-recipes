@@ -1,0 +1,50 @@
+.register-page-container{
+    width: 100%;
+    min-height: 130vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--softpurpil);
+}
+.register-page-form{
+    padding: 70px;
+    border-radius: 10px;
+    width: 600px;
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    border: solid 2px var(--purpil);
+    background-color: white;
+    
+
+    /* background-color: var(--softgreen); */
+}
+.register-page-form input{
+    width: 90%;
+    padding: 20px;
+    border: none;
+    border-bottom: solid 2px var(--purpil);
+    outline: none;
+}
+.register-page-form button{
+    width: 100%;
+    padding: 15px;
+    margin-top: 30px;
+    background-color: var(--softpurpil);
+    color: var(--purpil);
+    border: none;
+    cursor: pointer;
+}
+.register-page-form button:hover{
+    background-color: var(--purpil);
+    color: white;
+}
+.register-page-container #toregister{
+color: blue;
+}
+.register-page-container #toregister:hover{
+    text-decoration: underline;
+    }

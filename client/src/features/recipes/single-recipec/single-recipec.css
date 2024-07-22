@@ -1,0 +1,247 @@
+.sr .single-recipec-page-container {
+    max-width: 100vw;
+    padding: 5vw;
+    background-color: var(--softpurpil);
+}
+
+.sr .single-recipec-page-sub-container {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    padding: 2vw;
+    background-color: white;
+    border-radius: 10px;
+    gap: 15vh;
+}
+
+.sr .recipe-head-container {
+    height: 50vh;
+    display: grid;
+    gap: 5vw;
+    grid-template-columns: 1fr 1fr;
+    border: solid 1px var(--purpil);
+    border-radius: 10px;
+}
+
+.sr .recipe-head-info {
+    margin-top: 2vw;
+    margin-right: 2vw;
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    gap: 5px;
+}
+
+.sr .recipe-name-and-description {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.sr .recipe-name-and-description .recipe-name {
+    font-size: 250%;
+    text-align: center;
+}
+
+.sr .recipe-name-and-description .recipe-description {
+    font-size: 150%;
+}
+
+.sr .recipe-from-and-date {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.sr .recipe-head-img-container {
+    width: 100%;
+    height: 49.8vh;
+    aspect-ratio: 16 / 12;
+    /* Ensures a wide aspect ratio */
+    position: relative;
+    border-radius: 10px 0 0 10px;
+    overflow: hidden;
+    transition: filter 0.2s, transform 0.2s;
+    /* עיצוב המעבר */
+
+}
+
+.sr .recipe-head-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+
+.sr .recipe-icons-ingredientd-and-instructions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+
+.sr .recipe-time-count-type-level-container {
+    display: flex;
+    /* gap: 4vw; */
+    border-bottom: 1px solid var(--purpil);
+    justify-content: center;
+}
+
+.sr .recipe-time-count-type-level-container .count-container,
+.time-container,
+.type-container,
+.level-container,
+.love-container {
+    display: flex;
+    gap: 0.8vh;
+    flex-direction: column;
+    margin: 1vh;
+    border-left: solid 1px var(--purpil);
+    align-items: center;
+    padding-left: calc(2vw);
+    padding-right: 2vw;
+    width: 15vw;
+}
+
+.sr .love-container:hover {
+    cursor: pointer;
+}
+
+.sr .love-container:hover .icon {
+    transform: scale(1.3);
+}
+
+.sr .recipe-time-count-type-level-container .time-container {
+    border-right: solid 1px var(--purpil);
+}
+
+.sr .recipe-time-count-type-level-container .icon {
+    color: var(--purpil);
+    font-size: 140%;
+}
+
+/* #EASY .icon{
+    color: rgb(142, 141, 142);
+}
+#HARD .icon{
+    color:rgb(93, 57, 57);
+}
+#MEDIUM .icon{
+    color: rgb(88, 88, 89);
+} */
+.sr #PARVE .icon {
+    color: green;
+}
+
+.sr #DAIRY .icon {
+    color: blue;
+}
+
+.sr #MEAT .icon {
+    color: red;
+}
+
+.sr .recipe-icons-ingredientd-and-instructions-container .recipe-ingredients-and-instructions {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    border: solid 1px var(--purpil);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    /* padding-bottom: 2vw; */
+}
+
+.sr .recipe-ingredients-and-instructions {
+    padding-top: 1vw;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.sr .ingredients-title,
+.instructions-title {
+    padding-right: 5vw;
+    font-size: 180%;
+    margin-bottom: 2vh;
+}
+
+.sr .single-ingredient,
+.single-instruction {
+    padding-right: 5vw;
+    padding: 3vh;
+    padding-right: 7vw;
+    font-size: 120%;
+}
+
+
+
+
+.sr .single-ingredient.done,
+.single-instruction.done {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.sr input[type='checkbox'] {
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+.sr input[type='checkbox'] {
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+.sr input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--purpil); /* צבע גבול ורוד */
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+.sr input[type="checkbox"]:checked {
+    background-color: var(--purpil); /* צבע רקע ורוד כאשר הצ'קבוקס מסומן */
+  }
+  
+.sr input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 7px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+
+.sr .wish-and-actions {
+    margin: 2vh;
+    width: 98%;
+    height: 10vh;
+    display: flex;
+    gap: 40vw;
+    background-color: rgba(161, 161, 161, 0.114);
+    border-radius: 0 0 10px 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.sr .wish-and-actions .owner-actions {
+    display: flex;
+    gap: 3vw;
+    cursor: pointer;
+    font-size: 130%;
+}
+
+.sr .wish-and-actions .delte {
+    font-size: 110%;
+}
+
+.sr .wish-and-actions .wish {
+    font-size: 180%;
+    font-weight: bold;
+}

@@ -1,0 +1,200 @@
+.add-title {
+  color: var(--purpil);
+  font-size: 2rem;
+  border: none;
+  padding: 2vh;
+}
+
+.add-recipe-container {
+  max-width: 100vw;
+  padding-right: 10vw;
+  padding-left: 10vw;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: var(--softpurpil);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  text-align: center;
+}
+
+.add-recipe-form-self {
+  padding: 3vh;
+  max-width: 80vw;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  border: solid 1px var(--purpil);
+  border-radius: 10px;
+}
+
+.add-recipe-form-self input,
+/* .add-recipe-form-self select, */
+.add-recipe-form-self textarea {
+  margin-bottom: 10px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.add-recipe-form-self .add-ingredient-button,
+.add-recipe-form-self .add-instruction-button,
+.add-recipe-form-self .send-button {
+  background-color: white;
+  border: solid 1px var(--purpil);
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 5px;
+  width: 22vw;
+  height: 8vh;
+  margin-bottom: 5vh;
+}
+
+
+.add-recipe-form-self button:hover {
+  background-color: var(--purpil);
+  color: white;
+}
+
+.ingredient-list,
+.instruction-list {
+  margin-top: 10px;
+}
+
+.ingredient-item,
+.instruction-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.ingredient-input button,
+.instruction-input button {
+  width: 2vw;
+  height: 2vw;
+  background-color: var(--purpil);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.ingredient-input button:hover,
+.instruction-input button:hover {
+  background-color: var(--purpil);
+}
+
+/* .image-upload {
+  position: relative;
+}
+
+.image-upload input[type='file'] {
+  position: absolute;
+  left: -9999px;
+}
+
+.image-upload img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.upload-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  border: 1px dashed #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #555;
+}
+
+.upload-text {
+  cursor: pointer;
+  display: inline-block;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+}
+
+.upload-text input {
+  display: none;
+} */
+
+.ingredients-and-instructions-container {
+  display: flex;
+  align-content: space-around;
+  gap: 10vw;
+}
+
+.instruction-input,
+.ingredient-input {
+  display: flex;
+  align-items: center;
+  gap: 6vw;
+  border-radius: 10px;
+  padding: 10px;
+  border: solid 1px var(--purpil);
+  width: 22vw;
+}
+
+.instruction-input input,
+.ingredient-input input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.instructions-container,
+.ingredients-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+.image-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-preview {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.image-preview-container button {
+  background-color: white;
+  border: solid 1px var(--purpil);
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 5px;
+  margin-bottom: 5px;
+  width: 100px;
+}
+
+.image-preview-container button:hover {
+  background-color: var(--purpil);
+  color: white;
+}
+.send-and-cancel-buttons-container{
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
