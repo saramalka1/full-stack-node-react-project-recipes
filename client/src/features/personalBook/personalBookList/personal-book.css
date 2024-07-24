@@ -127,3 +127,9 @@
     border-radius: 5px;
     transform: translateY(-50%);
 }
+@media (max-width:768px){
+    .pbook-main-head-container{
+        font-size: 80%;
+        text-align: center;
+    }
+}

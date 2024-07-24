@@ -245,3 +245,31 @@
     font-size: 180%;
     font-weight: bold;
 }
+@media (max-width:768px){
+    .sr .single-recipec-page-sub-container{
+        gap: 5vh;
+    }
+ .sr .recipe-head-container{
+    overflow: hidden;
+    font-size: 80%;
+ }  
+ .sr .recipe-date{
+    display: none;
+ } 
+ .sr .recipe-time-count-type-level-container{
+    font-size: 80%;
+    
+ }
+ .sr .love-text{
+    font-size: 70%;
+ }
+ .sr .recipe-ingredients-and-instructions{
+    font-size: 90%;
+ }
+ .sr .wish-and-actions{
+    width: 80vw;
+ }
+ .sr .edit-text{
+    display: none;
+ }
+}

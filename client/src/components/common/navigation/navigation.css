@@ -261,7 +261,7 @@
     }
     .navigation-adminActions-container:hover {
         width: 100vw;
-        /* height: 8vh; */
+        height: 8vh;
     }
 
     .navigation-recipes-container:hover .navigation-recipes {

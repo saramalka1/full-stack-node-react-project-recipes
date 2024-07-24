@@ -287,3 +287,41 @@
     background-color: var(--purpil);
     color: white;
 }
+
+@media (max-width:768px) {
+    .pb .single-recipec-page-sub-container{
+        gap: 5vh;
+    }
+    
+        .pb .recipe-head-container{
+           overflow: hidden;
+           font-size: 80%;
+        }  
+        .pb .recipe-date{
+           display: none;
+        } 
+        .pb .recipe-time-count-type-level-container{
+           font-size: 80%;
+           
+        }
+        .pb .love-text{
+           font-size: 70%;
+        }
+        .pb .recipe-ingredients-and-instructions{
+           font-size: 90%;
+        }
+        .pb .wish-and-actions{
+           width: 80vw;
+        }
+        .pb .edit-text{
+           display: none;
+        }
+
+        .pb .save-button {
+           
+            width: 20vw;
+            margin-right: 60vw;
+        }
+    
+}
+
