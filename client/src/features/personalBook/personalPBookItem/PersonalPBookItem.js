@@ -1,7 +1,7 @@
 import './personal-pbook-item.css'
 import { useParams } from 'react-router-dom'
 import useGetFilePath from '../../../hooks/useGetFilePath'
-import { FaClock, FaConciergeBell } from "react-icons/fa"; 
+import { FaCheck, FaClock, FaConciergeBell } from "react-icons/fa"; 
 import { CgAdidas } from "react-icons/cg";
 import useAuth from '../../../hooks/useAuth'
 import { useGetPBookItemMutation, useUpdateCommentMutation } from '../../personalBook/personalBookApiSlice'
@@ -11,9 +11,9 @@ import { RxStarFilled } from 'react-icons/rx';
 const PersonalPBookItem = () => {
     const { isAdmin, _id } = useAuth()
     const { objid } = useParams()
-
+    const [issaved,setissaved]=useState(false)
     const [getPBookItem, { data, isSuccess, isLoading, isError, error }] = useGetPBookItemMutation()
-    const [updateComment, { isError: isErroru, error: erroru }] = useUpdateCommentMutation()
+    const [updateComment, { isError: isErroru, error: erroru,isSuccess:isSuccessu }] = useUpdateCommentMutation()
     const [recipeobj, setRecipeobj] = useState()
     const [doneIngredients, setDoneIngredients] = useState({})
     const [doneInstructions, setDoneInstructions] = useState({})
@@ -32,6 +32,11 @@ const PersonalPBookItem = () => {
         }
     }, [isSuccess, data])
 
+    useEffect(()=>{
+        if(isSuccessu)
+            setissaved(true)
+    },[isSuccessu])
+
     const handleIngredientClick = (index) => {
         setDoneIngredients(prevState => ({
             ...prevState,
@@ -48,6 +53,10 @@ const PersonalPBookItem = () => {
 
     const updateCommentClick = () => {
         updateComment({ objId:objid, comment })
+        
+        setTimeout(() => {
+            setissaved(false); // החזרת המצב למצב רגיל אחרי 4 שניות
+        }, 1000);
     }
 
     if (isError || isErroru) return <h1>משהו קרה בצד שלנו...</h1>
@@ -133,7 +142,7 @@ const PersonalPBookItem = () => {
                                     value={comment}
                                     onChange={(e) => setComment(e.target.value)}
                                 />
-                                <button className='save-button' onClick={updateCommentClick}>שמור שינויים</button>
+                                <button className='save-button' onClick={updateCommentClick}>{issaved ? <FaCheck /> : 'שמור שינויים'} </button>
                             </div>
                             <div className='wish-and-actions'>
                                 <div className='wish'>

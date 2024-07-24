@@ -7,6 +7,14 @@
     height: 4vh;
 }
 
+.navigation-sub-container {
+    display: flex;
+    flex-direction: row;
+    gap: 7vw;
+    justify-content: center;
+    justify-items: center;
+}
+
 .navigation-main-container .active {
     color: var(--purpil);
 
@@ -22,6 +30,8 @@
 
 .navigation-recipes {
     display: none;
+
+
 }
 
 .navigation-adminActions {
@@ -33,7 +43,7 @@
     gap: 1.5vh;
     flex-direction: column;
     position: absolute;
-    padding-top: 6vh;
+    /* padding-top: 6vh; */
     min-height: 15vh;
     background-color: black;
     padding-bottom: 2vh;
@@ -43,7 +53,50 @@
     align-items: center;
     border-bottom-left-radius: 10%;
     border-bottom-right-radius: 10%;
+
 }
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+
+
+/* התפריטים מתחילים עם אופטיקה נמוכה וסקייל קטן */
+.navigation-recipes,
+.navigation-adminActions {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+    position: absolute;
+    background-color: black;
+    color: white;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+    opacity: 0;
+    transform: scaleY(0);
+    /* transform-origin: top; */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    padding: 6vh 0 2vh;
+    /* ה-padding מתעדכן */
+}
+
+/* הצגת התפריטים בעת ריחוף */
+.navigation-recipes-container:hover .navigation-recipes,
+.navigation-adminActions-container:hover .navigation-adminActions {
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+/* הגדרת גובה מינימלי */
+.navigation-recipes {
+    min-width: 10vw;
+    min-height: 15vh;
+}
+
+
+
+
+
+/* !!!!!!!!!!!!!111 */
 
 .navigation-adminActions-container:hover .navigation-adminActions {
     display: flex;
@@ -61,10 +114,12 @@
     border-bottom-right-radius: 10%;
 
 }
-.single-link-to-action-navigation:hover{
+
+.single-link-to-action-navigation:hover {
     color: var(--purpil);
 }
-.single-link-to-category-navigation:hover{
+
+.single-link-to-category-navigation:hover {
     color: var(--purpil);
 }
 
@@ -86,7 +141,7 @@
     align-items: center;
     justify-items: center;
     align-content: center;
-   padding: 10px;
+    padding: 10px;
     margin-right: 12vw;
     display: flex;
     flex-direction: row;
@@ -101,22 +156,25 @@
     /* font-size: medium; */
     cursor: pointer;
 }
+
 .icon-container {
     position: relative;
     display: inline-block;
-  }
-  
-  .exit-icon {
+}
+
+.exit-icon {
     color: var(--purpil);
     margin: 2vh;
-    font-size: 48px; /* הגדלת גודל האייקון */
-    font-weight: bold; /* הפיכת האייקון לעבה יותר */
-  }
-  
-  .tooltip {
+    font-size: 48px;
+    /* הגדלת גודל האייקון */
+    font-weight: bold;
+    /* הפיכת האייקון לעבה יותר */
+}
+
+.tooltip {
     visibility: hidden;
     background-color: #fff;
-    color:var(--purpil);
+    color: var(--purpil);
     text-align: center;
     border-radius: 5px;
     padding: 5px;
@@ -124,12 +182,114 @@
     position: absolute;
     z-index: 1;
     top: 100%;
-    left: 50%; /* מיקום הטקסט בצד ימין של האייקון */
+    left: 50%;
+    /* מיקום הטקסט בצד ימין של האייקון */
     transform: translateY(-50%);
-    white-space: nowrap; /* למנוע שבירת שורה */
+    white-space: nowrap;
+    /* למנוע שבירת שורה */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .icon-container:hover .tooltip {
+}
+
+.icon-container:hover .tooltip {
     visibility: visible;
-  }
+}
+
+.menu-icon {
+    display: none;
+}
+.out{
+    display: none;
+}
+
+@media (max-width:768px) {
+    .menu-icon {
+        display: block;
+        font-size: 200%;
+    }
+
+    .navigation-main-container {
+        position: relative;
+        /* height: 100%; */
+        display: flex;
+        justify-content: center;
+    }
+
+    .navigation-sub-container {
+        display: none;
+    }
+
+    .navigation-main-container:hover {
+        height: fit-content;
+    }
+
+    .navigation-main-container:hover .navigation-sub-container {
+        display: flex;
+        gap: 5vh;
+        flex-direction: column;
+        position: absolute;
+        top: 4vh;
+        margin-top: 0;
+        height: 50vh;
+        background-color: black;
+        color: white;
+        width: 35vw;
+        align-items: center;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .navigation-recipes-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        transform: none;
+        transition: none;
+        padding: 0;
+    }
+    .navigation-adminActions-containerr {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        transform: none;
+        transition: none;
+        padding: 0;
+    }
+
+    .navigation-recipes-container:hover {
+        width: 100vw;
+        height: 8vh;
+    }
+    .navigation-adminActions-container:hover {
+        width: 100vw;
+        /* height: 8vh; */
+    }
+
+    .navigation-recipes-container:hover .navigation-recipes {
+        z-index: 1;
+        /* background-color: gray; */
+        width: 35vw;
+        right: 68vw;
+        padding-bottom: 2vh;
+        position: absolute;
+        border-radius:2px;
+    }
+    .navigation-adminActions-container:hover .navigation-adminActions {
+        z-index: 1;
+        /* background-color: gray; */
+        width: 25vw;
+        right: 68vw;
+        padding-bottom: 0vh;
+        position: absolute;
+        padding-top: 3vh;
+        border-radius: 2px;
+        
+    }
+    .user-in-container{
+        display: none;
+    }
+    .out{
+        display: block;
+        color: white;
+        cursor: pointer;
+    }
+}

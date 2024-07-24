@@ -21,6 +21,7 @@
     border-radius: 10px;
     background-color: white;
     border: solid 1px var(--purpil);
+    
 }
 
 .single-category-home {
@@ -157,3 +158,11 @@
 
 /* !!!!!!!!!!!!1 */
 
+@media (max-width:768px){
+.cat-name{
+    font-size: 80%;
+}
+.rec-name{
+    font-size: 70%;
+}
+}

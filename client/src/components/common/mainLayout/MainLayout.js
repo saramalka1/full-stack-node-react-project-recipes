@@ -3,6 +3,7 @@ import Navigation from "../navigation/Navigation"
 import { MdOutlineCopyright } from "react-icons/md";
 
 import './mainLayout.css'
+import { CgMenu, CgMenuBoxed } from "react-icons/cg";
 const MainLayout = () => {
   return (
     <div className="main-layout-container">
@@ -10,15 +11,15 @@ const MainLayout = () => {
         <div className="logo">
           ניחוחות
         </div>
-        <div className="navigation">
-          <Navigation />
+        <div>
+        <Navigation className='navigation' />
         </div>
       </div>
       <div>
         <Outlet />
       </div>
       <div className="footer">
-        כל הזכויות שמורות <MdOutlineCopyright/>
+        כל הזכויות שמורות <MdOutlineCopyright />
       </div>
     </div>
   )

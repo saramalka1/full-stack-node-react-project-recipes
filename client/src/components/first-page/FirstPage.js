@@ -33,7 +33,7 @@ function FirstPage() {
                     <div className="single-category-img-container-home">
                       <img src={getFilePath(cat.img)} />
                     </div>
-                    {cat.name}
+                    <div className="cat-name">{cat.name}</div>
 
                   </NavLink>
 
@@ -58,7 +58,7 @@ function FirstPage() {
                     <div className="single-recipe-img-container-home">
                       <img src={getFilePath(rec.imgurl)} />
                     </div>
-                    {rec.name}
+                    <div className="rec-name">{rec.name}</div>
 
                   </NavLink>
 

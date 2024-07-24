@@ -52,7 +52,7 @@ const CategoryMainPagec = () => {
                     </div>
                 </div>
                 <div className='add-recipe-button-client'>
-                    <div>
+                    <div className='search-recipe'>
                         <Search placeholder={'חפשו מתכון'} />
                     </div>
                     {!username && <div>יש לכם מתכון מוצלח שמתאים לקטגוריה זו? <NavLink to={`/login`} state={{fromCategoryPage:true,catid}} className={'a'}>התחברו למערכת ושתפו אותנו!!</NavLink></div>}
@@ -74,7 +74,7 @@ const CategoryMainPagec = () => {
                                         <div className='single-recipe-img-container-client'>
                                             <img src={getFilePath(rec.imgurl)} />
                                         </div>
-                                        {rec.name}
+                                        <div className='rec-name'>{rec.name}</div>
                                     </NavLink>
                                 </div>
                             </div>
@@ -94,8 +94,8 @@ const CategoryMainPagec = () => {
                                             <div className='new-single-recipe-img-container-client'>
                                                 <img src={getFilePath(rec.imgurl)} />
                                             </div>
-                                            {rec.name}
-                                        </NavLink>
+                                            <div className='rec-name-new'>{rec.name}</div>
+                                            </NavLink>
                                     </div>
                                 </div>
                             )

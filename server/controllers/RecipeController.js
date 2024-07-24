@@ -284,6 +284,16 @@ const getLatestRecipesByCategoryId = async (req, res) => {
 
 }
 
+// const getRecipesByName=async(req,res)=>{
+//     const recipes=await Recipe.find({ deleted: false, show: true }).populate('category').sort({name:1}).lean()
+//     const search=req.query
+//     const recipesFiltered=recipes.filter(r=>r.name.contains(search))
+//     return res.status(201).json({
+//        error:false,
+//        message:'',
+//        data:recipesFiltered 
+//     })
+// }
 
 
 
@@ -297,4 +307,5 @@ module.exports = {
     getAllRecipesShow,
     getLatestRecipes,
     getLatestRecipesByCategoryId
+    // getRecipesByName
 }
