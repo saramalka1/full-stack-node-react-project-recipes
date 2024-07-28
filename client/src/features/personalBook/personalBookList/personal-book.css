@@ -127,9 +127,12 @@
     border-radius: 5px;
     transform: translateY(-50%);
 }
+<<<<<<< HEAD
 @media (max-width:768px){
     .pbook-main-head-container{
         font-size: 80%;
         text-align: center;
     }
 }
+=======
+>>>>>>> e610c7c554dd72914694e2574747fd7c8a406a34

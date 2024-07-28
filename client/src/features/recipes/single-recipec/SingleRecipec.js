@@ -135,8 +135,13 @@ const SingleRecipec = () => {
 
                                 <div>
 
+<<<<<<< HEAD
                                     {!isSuccessaddtopbook && <div className='love-text'> הוספה לספר המתכונים</div>}
                                     {isSuccessaddtopbook && <div className='love-text'>נוסף בהצלחה!</div>}
+=======
+                                    {!isSuccessaddtopbook && " הוספה לספר המתכונים"}
+                                    {isSuccessaddtopbook && "נוסף בהצלחה!"}
+>>>>>>> e610c7c554dd72914694e2574747fd7c8a406a34
 
                                 </div>
                             </div>}
@@ -173,7 +178,11 @@ const SingleRecipec = () => {
                             <div className='wish-and-actions'>
                                 {((isAdmin) || (_id === recipe.writeruser._id)) &&
                                     <div className='owner-actions'>
+<<<<<<< HEAD
                                         <div className='edit-text'>  זה המתכון שלך! אתה יכול לערוך אותו-</div>
+=======
+                                        <div>  זה המתכון שלך! אתה יכול לערוך אותו-</div>
+>>>>>>> e610c7c554dd72914694e2574747fd7c8a406a34
                                         <div><NavLink to={`/client/category/${catid}/${recid}/update`}><FiEdit /></NavLink></div>
                                         <div className='delte' onClick={() => clickdelete(recipe._id)}><MdOutlineDelete /></div>
                                     </div>
