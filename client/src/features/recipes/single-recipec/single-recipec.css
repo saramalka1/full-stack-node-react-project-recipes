@@ -244,7 +244,6 @@
 .sr .wish-and-actions .wish {
     font-size: 180%;
     font-weight: bold;
-<<<<<<< HEAD
 }
 @media (max-width:768px){
     .sr .single-recipec-page-sub-container{
@@ -273,6 +272,4 @@
  .sr .edit-text{
     display: none;
  }
-=======
->>>>>>> e610c7c554dd72914694e2574747fd7c8a406a34
 }

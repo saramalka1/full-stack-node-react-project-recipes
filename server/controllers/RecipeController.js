@@ -284,7 +284,6 @@ const getLatestRecipesByCategoryId = async (req, res) => {
 
 }
 
-<<<<<<< HEAD
 // const getRecipesByName=async(req,res)=>{
 //     const recipes=await Recipe.find({ deleted: false, show: true }).populate('category').sort({name:1}).lean()
 //     const search=req.query
@@ -295,8 +294,6 @@ const getLatestRecipesByCategoryId = async (req, res) => {
 //        data:recipesFiltered 
 //     })
 // }
-=======
->>>>>>> e610c7c554dd72914694e2574747fd7c8a406a34
 
 
 
@@ -310,8 +307,5 @@ module.exports = {
     getAllRecipesShow,
     getLatestRecipes,
     getLatestRecipesByCategoryId
-<<<<<<< HEAD
     // getRecipesByName
-=======
->>>>>>> e610c7c554dd72914694e2574747fd7c8a406a34
 }

@@ -22,10 +22,6 @@ const verifyJwt = async (req, res, next) => {
             }
             // console.log("Decoded JWT:", decode);
             req.user = decode
-<<<<<<< HEAD
-=======
-            console.log("user:",req.user._id);
->>>>>>> e610c7c554dd72914694e2574747fd7c8a406a34
             next()
         })
 }

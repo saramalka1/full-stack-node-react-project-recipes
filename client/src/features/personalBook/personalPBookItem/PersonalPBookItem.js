@@ -1,11 +1,7 @@
 import './personal-pbook-item.css'
 import { useParams } from 'react-router-dom'
 import useGetFilePath from '../../../hooks/useGetFilePath'
-<<<<<<< HEAD
 import { FaCheck, FaClock, FaConciergeBell } from "react-icons/fa"; 
-=======
-import { FaClock, FaConciergeBell } from "react-icons/fa"; 
->>>>>>> e610c7c554dd72914694e2574747fd7c8a406a34
 import { CgAdidas } from "react-icons/cg";
 import useAuth from '../../../hooks/useAuth'
 import { useGetPBookItemMutation, useUpdateCommentMutation } from '../../personalBook/personalBookApiSlice'
@@ -15,15 +11,9 @@ import { RxStarFilled } from 'react-icons/rx';
 const PersonalPBookItem = () => {
     const { isAdmin, _id } = useAuth()
     const { objid } = useParams()
-<<<<<<< HEAD
     const [issaved,setissaved]=useState(false)
     const [getPBookItem, { data, isSuccess, isLoading, isError, error }] = useGetPBookItemMutation()
     const [updateComment, { isError: isErroru, error: erroru,isSuccess:isSuccessu }] = useUpdateCommentMutation()
-=======
-
-    const [getPBookItem, { data, isSuccess, isLoading, isError, error }] = useGetPBookItemMutation()
-    const [updateComment, { isError: isErroru, error: erroru }] = useUpdateCommentMutation()
->>>>>>> e610c7c554dd72914694e2574747fd7c8a406a34
     const [recipeobj, setRecipeobj] = useState()
     const [doneIngredients, setDoneIngredients] = useState({})
     const [doneInstructions, setDoneInstructions] = useState({})
@@ -42,14 +32,11 @@ const PersonalPBookItem = () => {
         }
     }, [isSuccess, data])
 
-<<<<<<< HEAD
     useEffect(()=>{
         if(isSuccessu)
             setissaved(true)
     },[isSuccessu])
 
-=======
->>>>>>> e610c7c554dd72914694e2574747fd7c8a406a34
     const handleIngredientClick = (index) => {
         setDoneIngredients(prevState => ({
             ...prevState,
@@ -66,13 +53,10 @@ const PersonalPBookItem = () => {
 
     const updateCommentClick = () => {
         updateComment({ objId:objid, comment })
-<<<<<<< HEAD
         
         setTimeout(() => {
             setissaved(false); // החזרת המצב למצב רגיל אחרי 4 שניות
         }, 1000);
-=======
->>>>>>> e610c7c554dd72914694e2574747fd7c8a406a34
     }
 
     if (isError || isErroru) return <h1>משהו קרה בצד שלנו...</h1>
@@ -158,11 +142,7 @@ const PersonalPBookItem = () => {
                                     value={comment}
                                     onChange={(e) => setComment(e.target.value)}
                                 />
-<<<<<<< HEAD
                                 <button className='save-button' onClick={updateCommentClick}>{issaved ? <FaCheck /> : 'שמור שינויים'} </button>
-=======
-                                <button className='save-button' onClick={updateCommentClick}>שמור שינויים</button>
->>>>>>> e610c7c554dd72914694e2574747fd7c8a406a34
                             </div>
                             <div className='wish-and-actions'>
                                 <div className='wish'>
