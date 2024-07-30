@@ -55,7 +55,7 @@ const PersonalPBookItem = () => {
         updateComment({ objId:objid, comment })
         
         setTimeout(() => {
-            setissaved(false); // החזרת המצב למצב רגיל אחרי 4 שניות
+            setissaved(false); 
         }, 1000);
     }
 

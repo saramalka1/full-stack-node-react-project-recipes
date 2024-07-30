@@ -52,6 +52,7 @@
 
 .single-category-img-container-home:hover img {
     transform: scale(1.1);
+    transition-duration: 800ms;
 }
 
 .single-category-img-container-home:hover {

@@ -71,3 +71,61 @@
     padding: 5px;
 }
 
+@media (max-width: 768px) {
+    .categories-list-top{
+        display: flex;
+        flex-direction: row;
+        gap: 22vw;
+        
+    }
+    .categories-list-add-button{
+        padding: 12px;
+        background-color:white;
+        /* color: white; */
+        border: solid 1px var(--purpil) ;
+        border-radius: 3px;
+        cursor: pointer;
+        border-radius: 1px;
+    }
+    
+
+    .categories-list-table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap; 
+    }
+    
+    .categories-list-table .description{
+        display: none;
+    }
+    .categories-list-table .description-in-tbody{
+        display: none;
+    }
+    .categories-list-buttons{
+        /* margin-right:9vw ; */
+        display: flex;
+        align-items: center;
+        gap: 7vh;
+        /* padding: 5px 10px; */
+        border-radius: 5px;
+        border: none;
+    }
+    .categories-list-delete{
+        width: 25%;
+        height: 5vh;
+        padding: 5px;
+        border: none;
+        cursor: pointer;
+        background-color: rgba(183, 182, 182, 0.068);
+    }
+    
+    .categories-list-view{
+        width: 45%;
+        cursor: pointer;
+        background-color: rgba(183, 182, 182, 0.068);
+        height: 5vh;
+        padding: 5px;
+    }
+    
+  }
+

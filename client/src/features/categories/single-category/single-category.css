@@ -2,12 +2,9 @@
   display: flex;
   flex-direction: column;
   background-color: var(--softpurpil);
-  /* min-height: 200vh; */
 }
 
-
 .single-category-properties {
-
   padding: 20vh;
   display: flex;
   gap: 5vw;
@@ -36,7 +33,6 @@
   overflow: hidden;
   margin-bottom: 20px;
   aspect-ratio: 16/12;
-
 }
 
 .single-category-img-container img {
@@ -61,19 +57,20 @@
 .form-category-properties input {
   width: 30vw;
   height: 4vh;
-  /* border: none; */
 }
 
 .form-category-properties button {
-  background-color: var(--softpurpil);
-  border-bottom: none;
-  border-radius: 10px;
+  background-color: white;
+  border: solid 1px var(--purpil);
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--purpil);
 }
 
-.form-category-properties button:hover {
+/* .form-category-properties button:hover {
   background-color: var(--purpil);
   color: white;
-}
+} */
 
 /* befor tavla */
 .title-and-add-button-container {
@@ -92,51 +89,45 @@
 }
 
 .add-recipe-button {
-
   padding: 10px;
-  background-color: var(--purpil);
-  color: white;
+  background-color: white;
+  color: var(--purpil);
   height: fit-content;
   border-radius: 5px;
   cursor: pointer;
-
+  border: solid 1px var(--purpil);
 }
 
-/*tavla*/
+/* טבלה */
 .recipes-table {
   margin: 2vh;
-  margin-right: 9vw;
+  margin-right: 8.5vw;
   text-align: center;
+  align-content: center;
   min-width: 82%;
-  /* min-height: 50vh; */
   margin-top: 5vh;
   background-color: white;
   border-radius: 10px;
   padding-right: 10vw;
 }
 
-/* .recipes-table thead {
-  text-decoration: underline;
-  color: var(--green);
-} */
-
-.recipes-table tr {
-  padding: 10vw;
-}
-
-.recipes-table td {
+.recipes-table th, .recipes-table td {
   padding: 20px;
+  text-align: center; /* ממרכז את התוכן בציר ה-X */
+  vertical-align: middle; /* ממרכז את התוכן בציר ה-Y */
 }
 
 .recipes-list-recipe {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
 .recipe-name-image {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -148,14 +139,13 @@
   display: flex;
   gap: 5px;
   align-items: center;
-  padding-right: 15vw;
+  justify-content: center;
 }
 
 .change-show {
   width: 5vw;
   height: 5vh;
   border: none;
-  padding: 7px;
 }
 
 .recipes-table .delete-recipe-button {
@@ -170,4 +160,13 @@
   background-color: rgba(160, 164, 164, 0.109);
   padding: 1vh;
   margin: 3px;
+}
+
+/* כלל מדיה עבור תצוגות מתחת ל-768 פיקסלים */
+@media (max-width: 768px) {
+  .recipes-table {
+    display: block;
+    overflow-x: auto; /* מאפשר גלילה לרוחב */
+    white-space: nowrap; /* מונע שבירת שורות */
+  }
 }

@@ -18,5 +18,27 @@ background-color: transparent;
         width: 60vw;
 
     }
+    .search-category {
+        display: flex;
+   align-items: center;
+   gap: 1vw;
+   width: 35vw;
+   height: 6vh;
+   background-color:white ;
+   border-radius: 1px;
+  padding: 5px;
+  border: solid 1px var(--purpil);
+    }
+    .search-user{
+        display: flex;
+        align-items: center;
+        gap: 1vw;
+        width: 35vw;
+        height: 6vh;
+        background-color:white ;
+        border-radius: 1px;
+       padding: 5px;
+       border: solid 1px var(--purpil);
+    }
 }
 

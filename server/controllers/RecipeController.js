@@ -101,7 +101,7 @@ const createNewRecipe = async (req, res) => {
 
 }
 
-//admin-update a recipe
+//admin-update a recipe-בסוף עשיתי פונקציית עדכון אחת גם למנהל וגם למשתמש ולא השתמשתי בפונקציה הזו
 const updateRecipeByAdmin = async (req, res) => {
     const { id, show, cors } = req.body
     if (!id) {

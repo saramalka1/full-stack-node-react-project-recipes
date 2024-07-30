@@ -1,11 +1,12 @@
 import { NavLink, useParams } from 'react-router-dom'
 import { useGetAllCategoriesQuery, useUpdateCategoryMutation } from '../categoryApiSlice'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDeleteRecipeMutation, useGetAllRecipesQuery, useUpdateRecipeAdminMutation, } from '../../recipes/RecipeApiSlice'
 import "./single-category.css"
 import { Button, Modal } from 'antd';
 import useGetFilePath from '../../../hooks/useGetFilePath'
 import { IoTrashOutline } from 'react-icons/io5'
+import { FaCheck } from 'react-icons/fa'
 const SingleCategory = () => {
   const [err, setErr] = useState('')
   const { categoryid } = useParams()
@@ -15,6 +16,17 @@ const SingleCategory = () => {
   const [updateCategory, { isSuccess: isSuccessu, isError: isErroru, error: erroru }] = useUpdateCategoryMutation()
   const [deleteRecipef,{isSuccess:isSuccessd,isError:isErrord,error:errord}]=useDeleteRecipeMutation()
   const [updateShow, { }] = useUpdateRecipeAdminMutation()
+  const [showSuccessUpdate,setshowSuccessUpdate]=useState(false)
+
+  useEffect(()=>{
+    if(isSuccessu)
+    setshowSuccessUpdate(true)
+    setTimeout(()=>{
+      setshowSuccessUpdate(false)
+    },1000)
+  },[isSuccessu])
+  
+  
   if (isError) return <h3>{JSON.stringify(error)}</h3>
   if (isLoading) return ""
   const category = data.data?.find(c => c._id == categoryid)
@@ -52,6 +64,10 @@ const SingleCategory = () => {
         },
     });
 };
+
+
+  
+
   
   return (
     <div className='single-category-container'>
@@ -72,7 +88,7 @@ const SingleCategory = () => {
             <input name="img" type="file" placeholder='בחר תמונה' />
 
 
-            <button>שמור שינויים</button>
+            <button >{showSuccessUpdate?<FaCheck />:"שמור שינויים"}</button>
             {err}
 
           </form>

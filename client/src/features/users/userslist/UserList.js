@@ -47,7 +47,7 @@ const UserList = () => {
     return (
         <div className='users-list'>
             <div className='users-list-top'>
-                <Search placeholder="חפש משתמש" />
+                <Search placeholder="חפש משתמש" className={'search-user'}/>
                 <Link to='/users/add' className="users-list-add-button">
                     הוסף משתמש
                 </Link>

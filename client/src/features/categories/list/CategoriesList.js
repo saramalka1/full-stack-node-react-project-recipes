@@ -43,7 +43,7 @@ const CategoriesList = () => {
         <div className="categories-list">
 
             <div className="categories-list-top">
-                <Search placeholder={"חפש קטגוריה"} />
+                <Search placeholder={"חפש קטגוריה"} className={'search-category'}/>
                 <Link to="/categories/add" className="categories-list-add-button">
                     הוסף קטגוריה
                 </Link>
@@ -73,7 +73,7 @@ const CategoriesList = () => {
                                         </Link>
                                     </div>
                                 </td>
-                                <td>
+                                <td className="description-in-tbody">
 
                                     {cat.description}
 

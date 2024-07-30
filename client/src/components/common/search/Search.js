@@ -2,11 +2,11 @@ import { MdSearch } from "react-icons/md";
 import { useSearchParams } from "react-router-dom";
 import "./search.css"
 
-const Search = ({placeholder}) => {
+const Search = ({placeholder,className}) => {
   const [searchParams, setSearchParams] = useSearchParams()
   const q = searchParams.get("q")
   return (
-    <div className='search-container'>
+    <div className={`search-container ${className}`}>
         <MdSearch />
         <input type='text'
         defaultValue={q||""}
