@@ -30,11 +30,16 @@ const CategoriesList = () => {
             cancelButtonProps: { className: 'custom-cancel-button' }, // סגנון הכפתור "בטל"
             onOk() {
                 deleteCategory(id);
+                document.body.style.overflowY = 'auto';
+
             },
             onCancel() {
                 console.log('בוטל מחיקת המשתמש');
+                document.body.style.overflowY = 'auto';
+
             },
         });
+        document.body.style.overflowY = 'hidden';
     };
     
     const categoriesShow = !q ? [...categories.data] : categories.data.filter(cat => cat.name.indexOf(q) > -1)

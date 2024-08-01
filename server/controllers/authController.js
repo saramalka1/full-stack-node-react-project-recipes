@@ -71,8 +71,9 @@ const login = async (req, res) => {
         email: founduser.email,
         phone: founduser.phone
     }
-    const accessToken = jwt.sign(userInformation, process.env.SYSTEM_TOKEN_PASSWORD, { expiresIn: '15m' })
 
+    const accessToken = jwt.sign(userInformation, process.env.SYSTEM_TOKEN_PASSWORD, { expiresIn: '15m' })
+// הכנסת הטוקן לעוגיות כדי שנוכל לתת טוקן חדש גם אחרי שפג הטוקן
     const refreshToken = jwt.sign({ username: founduser.username }, process.env.REFRESH_TOKEN_PASSWORD, { expiresIn: '7d' })
     res.cookie("jwt", refreshToken, {
         httpOnly: true,

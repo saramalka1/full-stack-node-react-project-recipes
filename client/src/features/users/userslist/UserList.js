@@ -20,23 +20,26 @@ const UserList = () => {
         return <h1>Error:{JSON.stringify(error)}</h1>
 
     
-        const deleteUser = (id) => {
-            Modal.confirm({
-                title: 'האם אתה בטוח שברצונך למחוק את המשתמש?',
-                okText: 'אני רוצה למחוק',
-                okType: 'danger',
-                cancelText: 'ביטול',
-                icon: <ExclamationCircleOutlined className="custom-icon" />,                className: 'custom-modal', // קבוצת הסגנון שלי
-                okButtonProps: { className: 'custom-ok-button' }, // סגנון הכפתור "מחק"
-                cancelButtonProps: { className: 'custom-cancel-button' }, // סגנון הכפתור "בטל"
-                onOk() {
-                    deleteUserf(id);
-                },
-                onCancel() {
-                    console.log('בוטל מחיקת המשתמש');
-                },
-            });
-        };
+    const deleteUser = (id) => {
+        Modal.confirm({
+            title: 'האם אתה בטוח שברצונך למחוק את המשתמש?',
+            okText: 'אני רוצה למחוק',
+            okType: 'danger',
+            cancelText: 'ביטול',
+            icon: <ExclamationCircleOutlined className="custom-icon" />,className: 'custom-modal', 
+            okButtonProps: { className: 'custom-ok-button' }, 
+            cancelButtonProps: { className: 'custom-cancel-button' }, 
+            onOk() {
+                deleteUserf(id);
+                document.body.style.overflowY = 'auto';
+            },
+            onCancel() {
+                console.log('בוטל מחיקת המשתמש');
+                document.body.style.overflowY = 'auto';
+            },
+        });
+        document.body.style.overflowY = 'hidden';
+    };
     // const deleteUser = (id) => {
     //     if (window.confirm("האם אתה בטוח שברצונך למחוק את המשתמש?")) {
     //         deleteUserf(id)

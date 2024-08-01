@@ -113,14 +113,14 @@
 
 .recipes-table th, .recipes-table td {
   padding: 20px;
-  text-align: center; /* ממרכז את התוכן בציר ה-X */
-  vertical-align: middle; /* ממרכז את התוכן בציר ה-Y */
+  /* text-align: center; */
+  /* vertical-align: middle;  */
 }
 
 .recipes-list-recipe {
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   gap: 10px;
 }
 
@@ -162,7 +162,6 @@
   margin: 3px;
 }
 
-/* כלל מדיה עבור תצוגות מתחת ל-768 פיקסלים */
 @media (max-width: 768px) {
   .recipes-table {
     display: block;

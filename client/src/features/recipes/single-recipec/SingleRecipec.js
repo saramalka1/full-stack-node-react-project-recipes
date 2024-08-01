@@ -68,11 +68,16 @@ const SingleRecipec = () => {
                 // navigate(`/client/category/${catid}`)
                 //ניווט לעמוד הקודם
                 navigate(-1)
+                document.body.style.overflowY = 'auto';
+
             },
             onCancel() {
                 console.log('בוטל מחיקת המתכון');
+                document.body.style.overflowY = 'auto';
+
             },
         });
+        document.body.style.overflowY = 'hidden';
     };
 
     if (isError)

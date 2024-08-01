@@ -58,11 +58,16 @@ const SingleCategory = () => {
         cancelButtonProps: { className: 'custom-cancel-button' }, // סגנון הכפתור "בטל"
         onOk() {
             deleteRecipef(id);
+            document.body.style.overflowY = 'auto';
+
         },
         onCancel() {
             console.log('בוטל מחיקת המתכון');
+            document.body.style.overflowY = 'auto';
+
         },
     });
+    document.body.style.overflowY = 'hidden';
 };
 
 

@@ -8,7 +8,7 @@ const baseQuery=fetchBaseQuery({
     prepareHeaders:(headers,{getState})=>{
        
         const token=getState().auth.token
-        console.log({"token":token});
+        // console.log({"token":token});
         //if(token){
             headers.set("Authorization",`Bearer ${token}`)
        // }
@@ -25,8 +25,6 @@ const baseQuery=fetchBaseQuery({
         const refreshResult=await baseQuery('/api/auth/refresh',api,extreOptions)
         if(refreshResult?.data){
             api.dispatch(setToken({...refreshResult.data}))
-            //מה שריקי אמרה
-            // api.dispatch(setToken(refreshResult.data.accessToken))
             result=await baseQuery(args,api,extreOptions)
         }
         else{

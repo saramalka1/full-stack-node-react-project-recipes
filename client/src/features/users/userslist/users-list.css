@@ -98,10 +98,7 @@
 }
 
 /**/
-.custom-modal .ant-modal-footer {
-  display: flex;
-  justify-content: space-between;
-}
+
 
 .custom-modal .custom-ok-button {
   /* background-color: #ff69b4; וורוד */
