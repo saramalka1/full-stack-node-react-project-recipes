@@ -101,7 +101,7 @@ const AddRecipe = () => {
                   <button type='button' onClick={() => removeIngredient(index)}>x</button>
                 </div>
               ))}
-              <button type='button' onClick={addIngredient} className='add-ingredient-button'>הוסף מרכיבים</button>
+              <button type='button' onClick={ג} className='add-ingredient-button'>הוסף מרכיבים</button>
             </div>
             {/* ההוראות הכנה */}
             <div className='instructions-container'>
