@@ -7,7 +7,7 @@ import { useGetCategoryByIdMutation } from '../../categories/categoryApiSlice';
 
 const AddRecipe = () => {
   const { catid } = useParams();
-  const { isAdmin, isUser, username } = useAuth();
+  useAuth();
   const [addrecipe, { isSuccess, isError, error }] = useAddRecipeMutation();
   const [getCategoryById, { isSuccess: isSuccesscategory, data: datacategory, isLoading: isLoadingcategory, isError: isErrorcategory }] = useGetCategoryByIdMutation()
   const [categoryname, setcategoryname] = useState('')
@@ -101,7 +101,7 @@ const AddRecipe = () => {
                   <button type='button' onClick={() => removeIngredient(index)}>x</button>
                 </div>
               ))}
-              <button type='button' onClick={ג} className='add-ingredient-button'>הוסף מרכיבים</button>
+              <button type='button' onClick={addIngredient} className='add-ingredient-button'>הוסף מרכיבים</button>
             </div>
             {/* ההוראות הכנה */}
             <div className='instructions-container'>

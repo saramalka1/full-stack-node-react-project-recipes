@@ -20,6 +20,7 @@ function FirstPage() {
   return (
 
     <div className="first-page-container-home">
+      
 
       {/* זה דיו לכל הקטגוריות */}
       <div className="categories-container-home">
